@@ -13,6 +13,9 @@
 		D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */; };
 		D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */; };
 		D7A13BEE1BE0F0C50052B3FE /* myJWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */; };
+		D7A13BF91BE0F2E80052B3FE /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BF81BE0F2E80052B3FE /* index.html */; };
+		D7A13BFB1BE0F43E0052B3FE /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFA1BE0F43E0052B3FE /* main.css */; };
+		D7A13BFD1BE0F49A0052B3FE /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFC1BE0F49A0052B3FE /* main.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		D7A13BE91BE0F0C50052B3FE /* myJWTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myJWTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJWTests.swift; sourceTree = "<group>"; };
 		D7A13BEF1BE0F0C50052B3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A13BF81BE0F2E80052B3FE /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		D7A13BFA1BE0F43E0052B3FE /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		D7A13BFC1BE0F49A0052B3FE /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,9 @@
 				D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */,
 				D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */,
 				D7A13BDC1BE0F0C50052B3FE /* Main.storyboard */,
+				D7A13BF81BE0F2E80052B3FE /* index.html */,
+				D7A13BFC1BE0F49A0052B3FE /* main.js */,
+				D7A13BFA1BE0F43E0052B3FE /* main.css */,
 				D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */,
 				D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */,
 				D7A13BE41BE0F0C50052B3FE /* Info.plist */,
@@ -180,6 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */,
+				D7A13BFB1BE0F43E0052B3FE /* main.css in Resources */,
+				D7A13BF91BE0F2E80052B3FE /* index.html in Resources */,
+				D7A13BFD1BE0F49A0052B3FE /* main.js in Resources */,
 				D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */,
 				D7A13BDE1BE0F0C50052B3FE /* Main.storyboard in Resources */,
 			);

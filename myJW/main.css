@@ -1,0 +1,9 @@
+h1, h2 {
+    color: #888;
+    background-color: #bd8;
+}
+
+button {
+    border-radius: 10%;
+    background-color: yellow;
+}

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myJW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVn-Rn-tOg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-m3-Rww">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Schedule" id="d04-pY-X92"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ecn-5C-LKB"/>
+                                    <barButtonItem title="Reader" id="Mey-88-bl5">
+                                        <connections>
+                                            <action selector="readerBtn:" destination="BYZ-38-t0r" id="5ND-fe-F0f"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JVA-WJ-rV2"/>
+                                    <barButtonItem title="Back" id="yLy-X9-ZzA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qs3-D8-inT"/>
+                                    <barButtonItem title="Forward" id="8QT-FG-N9t"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JVn-Rn-tOg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EyC-U7-CUb"/>
+                            <constraint firstAttribute="trailing" secondItem="JVn-Rn-tOg" secondAttribute="trailing" id="JkK-Z6-hZo"/>
+                            <constraint firstItem="5SZ-m3-Rww" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="LsY-gD-nrB"/>
+                            <constraint firstItem="JVn-Rn-tOg" firstAttribute="leading" secondItem="5SZ-m3-Rww" secondAttribute="leading" id="hs5-ct-rIW"/>
+                            <constraint firstItem="5SZ-m3-Rww" firstAttribute="trailing" secondItem="JVn-Rn-tOg" secondAttribute="trailing" id="vzv-BY-o3g"/>
+                            <constraint firstItem="JVn-Rn-tOg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yd0-uW-7Yu"/>
+                            <constraint firstItem="5SZ-m3-Rww" firstAttribute="top" secondItem="JVn-Rn-tOg" secondAttribute="bottom" id="yw4-yu-dC1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myWebView" destination="JVn-Rn-tOg" id="WEX-XK-pfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="380" y="305"/>
         </scene>
     </scenes>
 </document>
