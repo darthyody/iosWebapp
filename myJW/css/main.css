@@ -1,0 +1,36 @@
+.dailyChaps {
+   width: 100%;
+}
+
+.txt-center {
+   text-align: center;
+}
+.txt-left {
+   text-align: left;
+}
+.txt-right {
+   text-align: right;
+}
+
+/*the second method - much cleaner look: Using 2 :pseudo classes from predefined bootstrap icons*/
+input[type='checkbox'].pseudo-checkbox + label:before,
+input[type='checkbox'].pseudo-checkbox + label:after{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+input[type='checkbox'].pseudo-checkbox + label:after{/*unchecked icon*/
+    content: "\e157";
+    text-align: right;
+    width: 100%;
+    margin-right: -30px;
+}
+input[type='checkbox']:checked.pseudo-checkbox + label:after{/*checked icon*/
+    content: "\e067";
+}
