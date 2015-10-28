@@ -14,8 +14,9 @@
 		D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */; };
 		D7A13BEE1BE0F0C50052B3FE /* myJWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */; };
 		D7A13BF91BE0F2E80052B3FE /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BF81BE0F2E80052B3FE /* index.html */; };
-		D7A13BFB1BE0F43E0052B3FE /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFA1BE0F43E0052B3FE /* main.css */; };
-		D7A13BFD1BE0F49A0052B3FE /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFC1BE0F49A0052B3FE /* main.js */; };
+		D7DC987A1BE14F5E002C6982 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D7DC98791BE14F5E002C6982 /* css */; };
+		D7DC987E1BE14F8C002C6982 /* js in Resources */ = {isa = PBXBuildFile; fileRef = D7DC987D1BE14F8C002C6982 /* js */; };
+		D7DC98801BE14F98002C6982 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D7DC987F1BE14F98002C6982 /* fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,9 @@
 		D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJWTests.swift; sourceTree = "<group>"; };
 		D7A13BEF1BE0F0C50052B3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7A13BF81BE0F2E80052B3FE /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		D7A13BFA1BE0F43E0052B3FE /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
-		D7A13BFC1BE0F49A0052B3FE /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		D7DC98791BE14F5E002C6982 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		D7DC987D1BE14F8C002C6982 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		D7DC987F1BE14F98002C6982 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +85,13 @@
 		D7A13BD71BE0F0C50052B3FE /* myJW */ = {
 			isa = PBXGroup;
 			children = (
+				D7DC987F1BE14F98002C6982 /* fonts */,
+				D7DC987D1BE14F8C002C6982 /* js */,
+				D7DC98791BE14F5E002C6982 /* css */,
 				D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */,
 				D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */,
 				D7A13BDC1BE0F0C50052B3FE /* Main.storyboard */,
 				D7A13BF81BE0F2E80052B3FE /* index.html */,
-				D7A13BFC1BE0F49A0052B3FE /* main.js */,
-				D7A13BFA1BE0F43E0052B3FE /* main.css */,
 				D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */,
 				D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */,
 				D7A13BE41BE0F0C50052B3FE /* Info.plist */,
@@ -188,10 +191,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DC987A1BE14F5E002C6982 /* css in Resources */,
+				D7DC987E1BE14F8C002C6982 /* js in Resources */,
 				D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */,
-				D7A13BFB1BE0F43E0052B3FE /* main.css in Resources */,
+				D7DC98801BE14F98002C6982 /* fonts in Resources */,
 				D7A13BF91BE0F2E80052B3FE /* index.html in Resources */,
-				D7A13BFD1BE0F49A0052B3FE /* main.js in Resources */,
 				D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */,
 				D7A13BDE1BE0F0C50052B3FE /* Main.storyboard in Resources */,
 			);
@@ -402,6 +406,7 @@
 				D7A13BF41BE0F0C50052B3FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7A13BF51BE0F0C50052B3FE /* Build configuration list for PBXNativeTarget "myJWTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +415,7 @@
 				D7A13BF71BE0F0C50052B3FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
