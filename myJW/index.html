@@ -2,18 +2,20 @@
 <html>
     <head>
         <title>Schedule</title>
-        <link rel="stylesheet" href="main.css" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
     </head>
     <body>
-        <h2>Reader</h2>
-        <p id="text">BEGIN</p>
-        <button type="button" onclick="test()">CLICK ME</button>
-        <button type="button" onclick="read()">OTHER</button>
-        <script>
-            function test() {
-                document.getElementById("text").innerHTML = "ITS WORKING";
-            }
-        </script>
-        <script type="text/javascript" src="main.js"></script>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <h2 class="txt-center">Schedule</h2>
+                <div class="results"></div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
