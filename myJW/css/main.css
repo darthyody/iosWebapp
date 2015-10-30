@@ -12,6 +12,52 @@
    text-align: right;
 }
 
+#back {
+   position: absolute;
+   top: 25px;
+}
+
+.complete {
+   opacity: 0.5;
+   position: relative;
+}
+
+.complete > span {
+   font-size: 30px;
+   position: absolute;
+   top: 10px;
+   left: 10px;
+}
+
+.btnBook {
+   line-height: 50px;
+   display: block;
+   float: left;
+   text-align: center;
+   height: 50px;
+   width: 50px;
+   margin: 2px 2px 2px 2px;
+   background-color: #1d3254;
+   color: white;
+}
+
+.btnSchedule {
+   line-height: 50px;
+   display: block;
+   float: left;
+   text-align: center;
+   height: 50px;
+   width: 50px;
+   margin: 2px 2px 2px 2px;
+   background-color: #2f798f;
+   color: white;
+}
+
+.btnSchedule:active {
+   background-color: #888;
+}
+
+
 /*the second method - much cleaner look: Using 2 :pseudo classes from predefined bootstrap icons*/
 input[type='checkbox'].pseudo-checkbox + label:before,
 input[type='checkbox'].pseudo-checkbox + label:after{
