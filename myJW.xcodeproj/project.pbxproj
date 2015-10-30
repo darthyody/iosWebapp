@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D752FE901BE3A3D200216674 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D752FE8F1BE3A3D200216674 /* Launch Screen.storyboard */; };
 		D7A13BD91BE0F0C50052B3FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */; };
 		D7A13BDB1BE0F0C50052B3FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */; };
 		D7A13BDE1BE0F0C50052B3FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BDC1BE0F0C50052B3FE /* Main.storyboard */; };
 		D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */; };
-		D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */; };
 		D7A13BEE1BE0F0C50052B3FE /* myJWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */; };
 		D7A13BF91BE0F2E80052B3FE /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BF81BE0F2E80052B3FE /* index.html */; };
 		D7DC987A1BE14F5E002C6982 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D7DC98791BE14F5E002C6982 /* css */; };
@@ -30,12 +30,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D752FE8F1BE3A3D200216674 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D7A13BD51BE0F0C50052B3FE /* myJW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myJW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7A13BDD1BE0F0C50052B3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D7A13BE21BE0F0C50052B3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7A13BE41BE0F0C50052B3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7A13BE91BE0F0C50052B3FE /* myJWTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myJWTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A13BED1BE0F0C50052B3FE /* myJWTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJWTests.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				D7A13BDC1BE0F0C50052B3FE /* Main.storyboard */,
 				D7A13BF81BE0F2E80052B3FE /* index.html */,
 				D7A13BDF1BE0F0C50052B3FE /* Assets.xcassets */,
-				D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */,
+				D752FE8F1BE3A3D200216674 /* Launch Screen.storyboard */,
 				D7A13BE41BE0F0C50052B3FE /* Info.plist */,
 			);
 			path = myJW;
@@ -193,7 +193,7 @@
 			files = (
 				D7DC987A1BE14F5E002C6982 /* css in Resources */,
 				D7DC987E1BE14F8C002C6982 /* js in Resources */,
-				D7A13BE31BE0F0C50052B3FE /* LaunchScreen.storyboard in Resources */,
+				D752FE901BE3A3D200216674 /* Launch Screen.storyboard in Resources */,
 				D7DC98801BE14F98002C6982 /* fonts in Resources */,
 				D7A13BF91BE0F2E80052B3FE /* index.html in Resources */,
 				D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */,
@@ -245,14 +245,6 @@
 				D7A13BDD1BE0F0C50052B3FE /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D7A13BE11BE0F0C50052B3FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D7A13BE21BE0F0C50052B3FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
