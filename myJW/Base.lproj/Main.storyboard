@@ -24,17 +24,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-m3-Rww">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Schedule" id="d04-pY-X92"/>
+                                    <barButtonItem image="BibleIcon" id="d04-pY-X92"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ecn-5C-LKB"/>
-                                    <barButtonItem title="Reader" id="Mey-88-bl5">
+                                    <barButtonItem image="TodayIcon" id="Mey-88-bl5">
                                         <connections>
                                             <action selector="readerBtn:" destination="BYZ-38-t0r" id="5ND-fe-F0f"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JVA-WJ-rV2"/>
-                                    <barButtonItem title="Back" id="yLy-X9-ZzA"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qs3-D8-inT"/>
-                                    <barButtonItem title="Forward" id="8QT-FG-N9t"/>
+                                    <barButtonItem image="SettingsIcon" id="yLy-X9-ZzA"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -58,4 +56,9 @@
             <point key="canvasLocation" x="380" y="305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BibleIcon" width="50" height="50"/>
+        <image name="SettingsIcon" width="30" height="30"/>
+        <image name="TodayIcon" width="30" height="30"/>
+    </resources>
 </document>
