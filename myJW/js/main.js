@@ -1,22 +1,3 @@
-var spreadsheetID = "1Q21FM4uKe9_LDuY9_LuStVY0vppIvSm-YAjMjzLX6Uk";
-// Make sure it is public or set to Anyone with link can view
-var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
-
-// $.getJSON(url, function(data) {
-//   var entry = data.feed.entry;
-//   $(entry).each(function(){
-//     var read = "<div class='txt-left dailyChaps btn btn-default'><input type='checkbox' id='checkbox-" +
-//      this.gsx$id.$t +
-//       "' class='txt-right pseudo-checkbox sr-only'/><label for='checkbox-" +
-//       this.gsx$id.$t + "'>" +
-//       this.gsx$book.$t + ' ' +
-//       this.gsx$first.$t + '-' +
-//       this.gsx$last.$t +
-//       " </label></div>";
-//     $('.results').append(read);
-//   });
-//  });
-
 $.getJSON('js/books.json', function (data) {
    var i = 0;
    $(data.books).each(function(){
@@ -36,9 +17,16 @@ $.getJSON('js/books.json', function (data) {
    $('.btnBook').click(function(e) {
       $('#back').show();
       $('#books').html("");
+      var i = 0;
       $(data.books[e.target.id].schedule).each(function() {
-         var btnSchedule = "<div class='btnSchedule'>" + this + "</div>";
+         var id = data.books[e.target.id].name.replace(/\s+/g, '') + '_' + i;
+         var btnSchedule = "<div id='" + id + "' class='btnSchedule'>" + this + "</div>";
          $('#books').append(btnSchedule);
+         if(localStorage.getItem(id)) {
+            console.log(id);
+            addCompleteMarker($('#' + id));
+         }
+         i++;
       });
       setClickEvents();
    });
@@ -46,8 +34,14 @@ $.getJSON('js/books.json', function (data) {
 
 var setClickEvents = function() {
    $(".btnSchedule").click(function(e) {
-      console.log(e.target);
-      $(e.target).addClass("complete");
-      $(e.target).append("<span class='glyphicon glyphicon-ok'></span>");
+      addCompleteMarker(e.target);
+      localStorage.setItem(e.target.id, true);
+      console.log(e.target.id);
+      $(e.target).off();
    });
+}
+
+var addCompleteMarker = function(object) {
+   $(object).addClass("complete");
+   $(object).append("<span class='glyphicon glyphicon-ok'></span>");   
 }
