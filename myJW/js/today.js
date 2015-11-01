@@ -12,6 +12,22 @@ $(function() {
 
    $('#todayDate').html(formattedDate);
 
-   $('#test').html(bkData);
+   $.getJSON('js/books.json', function(data) {
+      var total = 0;
+      var complete = localStorage.length;
+      var savedBook = '';
+      var savedChap = '';
+      $(data.books).each(function() {
+         var book = this;
+         if (complete >= book.schedule.length) {
+            complete = complete - book.schedule.length;
+         } else if (!savedBook) {
+            savedBook = book;
+            savedChap = book.schedule[complete];
+         }
+      });
+      console.log(savedBook.name, savedChap);
+      $('#reading').html(savedBook.name + ' ' + savedChap);
+   });
 });
 

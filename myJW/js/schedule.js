@@ -53,6 +53,8 @@ var addCompleteMarker = function(object) {
 }
 
 var setProgressBar = function() {
+   var value = 0;
+
    var i = 0;
    $(bkData.books).each(function() {
       $(this.schedule).each(function() {
@@ -60,5 +62,7 @@ var setProgressBar = function() {
       });
    });
    var finished = localStorage.length;
-   $('#progress').html(finished + '/' + i + ' completed');
+   var progress = Math.round((finished / i) * 100);
+   console.log(progress + '%');
+   $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress).html(progress + '%');
 }
