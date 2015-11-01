@@ -17,6 +17,11 @@
    top: 25px;
 }
 
+.bibleSection {
+  display: inline-block;
+  width: 100%;
+}
+
 .complete {
    opacity: 0.5;
    position: relative;

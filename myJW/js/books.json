@@ -1,8 +1,564 @@
 {
    "books": [
       {
+         "name": "Genesis",
+         "abbr": "Ge",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-7",
+            "8-11",
+            "12-15",
+            "16-18",
+            "19, 20",
+            "21-23",
+            "24, 25",
+            "26-28",
+            "29, 30",
+            "31, 32",
+            "33-35",
+            "36-38",
+            "39-41",
+            "42-44",
+            "45-47",
+            "48-50"
+         ]
+      },
+      {
+         "name": "Exodus",
+         "abbr": "Ex",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-6",
+            "7-9",
+            "10-12",
+            "13-15",
+            "16-18",
+            "19-21",
+            "22-24",
+            "25-27",
+            "28, 29",
+            "30-32",
+            "33-35",
+            "36-38",
+            "39, 40"
+         ]
+      },
+      {
+         "name": "Leviticus",
+         "abbr": "Le",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-7",
+            "8, 9",
+            "10-12",
+            "13",
+            "14, 15",
+            "16-18",
+            "19-21",
+            "22, 23",
+            "24, 25",
+            "26, 27"
+         ]
+      },
+      {
+         "name": "Numbers",
+         "abbr": "Nu",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3, 4",
+            "5, 6",
+            "7",
+            "8-10",
+            "11-13",
+            "14, 15",
+            "16-18",
+            "19-21",
+            "22-24",
+            "25, 26",
+            "27-29",
+            "30, 31",
+            "32, 33",
+            "34-36"
+         ]
+      },
+      {
+         "name": "Deuteronomy",
+         "abbr": "De",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3, 4",
+            "5-7",
+            "8-10",
+            "11-13",
+            "14-17",
+            "18-20",
+            "21-23",
+            "24-26",
+            "27, 28",
+            "29-31",
+            "32-34"
+         ]
+      },
+      {
+         "name": "Joshua",
+         "abbr": "Jos",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-7",
+            "8, 9",
+            "10, 11",
+            "12-14",
+            "15-17",
+            "18-20",
+            "21, 22",
+            "23, 24"
+         ]
+      },
+      {
+         "name": "Judges",
+         "abbr": "Jg",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-6",
+            "7, 8",
+            "9, 10",
+            "11-13",
+            "14-16",
+            "17-19",
+            "20, 21"
+         ]
+      },
+      {
+         "name": "Ruth",
+         "abbr": "Ru",
+         "type": "hebrew",
+         "schedule": [
+            "1-4"
+         ]
+      },
+      {
+         "name": "1 Samuel",
+         "abbr": "1Sa",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-7",
+            "8-10",
+            "11-13",
+            "14, 15",
+            "16, 17",
+            "18-20",
+            "21-24",
+            "25-27",
+            "28-31"
+         ]
+      },
+      {
+         "name": "2 Samuel",
+         "abbr": "2Sa",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-7",
+            "8-11",
+            "12, 13",
+            "14, 15",
+            "16, 17",
+            "18, 19",
+            "20-22",
+            "23, 24"
+         ]
+      },
+      {
+         "name": "1 Kings",
+         "abbr": "1Ki",
+         "type": "hebrew",
+         "schedule": [
+            "1",
+            "2, 3",
+            "4-6",
+            "7",
+            "8",
+            "9, 10",
+            "11, 12",
+            "13, 14",
+            "15-17",
+            "18, 19",
+            "20, 21",
+            "22"
+         ]
+      },
+      {
+         "name": "2 Kings",
+         "abbr": "2Ki",
+         "type": "hebrew",
+         "schedule": [
+            "1",
+            "2-4",
+            "5-7",
+            "8, 9",
+            "10-12",
+            "13, 14",
+            "15, 16",
+            "17, 18",
+            "19-21",
+            "22-25"
+         ]
+      },
+      {
+         "name": "1 Chronicles",
+         "abbr": "1Ch",
+         "type": "hebrew",
+         "schedule": [
+            "1",
+            "2-4",
+            "5, 6",
+            "7-9",
+            "10-12",
+            "13-16",
+            "17-19",
+            "20-23",
+            "24-26",
+            "27-29"
+         ]
+      },
+      {
+         "name": "2 Chronicles",
+         "abbr": "2Ch",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-7",
+            "8-10",
+            "11-14",
+            "15-18",
+            "19-22",
+            "23-25",
+            "26-28",
+            "29, 30",
+            "31-33",
+            "34, 35",
+            "36"
+         ]
+      },
+      {
+         "name": "Ezra",
+         "abbr": "Ezr",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3-5",
+            "6-8",
+            "9, 10"
+         ]
+      },
+      {
+         "name": "Nehemiah",
+         "abbr": "Ne",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-6",
+            "7, 8",
+            "9, 10",
+            "11-13"
+         ]
+      },
+      {
+         "name": "Esther",
+         "abbr": "Es",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-7",
+            "8-10"
+         ]
+      },
+      {
+         "name": "Job",
+         "abbr": "Job",
+         "type": "hebrew",
+         "schedule": [
+            "1-5",
+            "6-10",
+            "11-15",
+            "16-21",
+            "22-28",
+            "29-33",
+            "34-37",
+            "38-42"
+         ]
+      },
+      {
+         "name": "Psalms",
+         "abbr": "Ps",
+         "type": "hebrew",
+         "schedule": [
+            "1-9",
+            "10-17",
+            "18-22",
+            "23-31",
+            "32-37",
+            "38-44",
+            "45-51",
+            "52-59",
+            "60-67",
+            "68-71",
+            "72-77",
+            "78-81",
+            "82-89",
+            "90-97",
+            "98-104",
+            "105-107",
+            "108-116",
+            "117–119:72",
+            "119:73-176",
+            "120-135",
+            "136-142",
+            "143-150"
+         ]
+      },
+      {
+         "name": "Proverbs",
+         "abbr": "Pr",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-8",
+            "9-13",
+            "14-17",
+            "18-21",
+            "22-24",
+            "25-28",
+            "29-31"
+         ]
+      },
+      {
+         "name": "Ecclesiastes",
+         "abbr": "Ec",
+         "type": "hebrew",
+         "schedule": [
+            "1-6",
+            "7-12"
+         ]
+      },
+      {
+         "name": "Song of Solomon",
+         "abbr": "Ca",
+         "type": "hebrew",
+         "schedule": [
+            "1-8"
+         ]
+      },
+      {
+         "name": "Isaiah",
+         "abbr": "Isa",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-8",
+            "9-12",
+            "13-16",
+            "17-21",
+            "22-25",
+            "26-28",
+            "29-31",
+            "32-35",
+            "36-38",
+            "39-42",
+            "43-47",
+            "48-51",
+            "52-56",
+            "57-59",
+            "60-63",
+            "64-66"
+         ]
+      },
+      {
+         "name": "Jeremiah",
+         "abbr": "Jer",
+         "type": "hebrew",
+         "schedule": [
+            "1-3",
+            "4-6",
+            "7-9",
+            "10-12",
+            "13-15",
+            "16-18",
+            "19-22",
+            "23:1–25:16",
+            "25:17–27:22",
+            "28-30",
+            "31, 32",
+            "33-35",
+            "36-38",
+            "39-41",
+            "42-44",
+            "45-48",
+            "49-50",
+            "51, 52"
+         ]
+      },
+      {
+         "name": "Lamentations",
+         "abbr": "La",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3-5"
+         ]
+      },
+      {
+         "name": "Ezekiel",
+         "abbr": "Eze",
+         "type": "hebrew",
+         "schedule": [
+            "1-4",
+            "5-8",
+            "9-12",
+            "13-15",
+            "16",
+            "17-19",
+            "20, 21",
+            "22, 23",
+            "24-26",
+            "27, 28",
+            "29-31",
+            "32, 33",
+            "34-36",
+            "37, 38",
+            "39, 40",
+            "41-43",
+            "44, 45",
+            "46-48"
+         ]
+      },
+      {
+         "name": "Daniel",
+         "abbr": "Da",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3, 4",
+            "5, 6",
+            "7, 8",
+            "9, 10",
+            "11, 12"
+         ]
+      },
+      {
+         "name": "Hosea",
+         "abbr": "Ho",
+         "type": "hebrew",
+         "schedule": [
+            "1-6",
+            "7-12",
+            "13, 14"
+         ]
+      },
+      {
+         "name": "Joel",
+         "abbr": "Joe",
+         "type": "hebrew",
+         "schedule": [
+            "1-3"
+         ]
+      },
+      {
+         "name": "Amos",
+         "abbr": "Am",
+         "type": "hebrew",
+         "schedule": [
+            "1-5",
+            "6-9"
+         ]
+      },
+      {
+         "name": "Obadiah",
+         "abbr": "Ob",
+         "type": "hebrew",
+         "schedule": [
+            "1"
+         ]
+      },
+      {
+         "name": "Jonah",
+         "abbr": "Jon",
+         "type": "hebrew",
+         "schedule": [
+            "1-4"
+         ]
+      },
+      {
+         "name": "Micah",
+         "abbr": "Mic",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2",
+            "3-7"
+         ]
+      },
+      {
+         "name": "Nahum",
+         "abbr": "Na",
+         "type": "hebrew",
+         "schedule": [
+            "1-3"
+         ]
+      },
+      {
+         "name": "Habakkuk",
+         "abbr": "Hab",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2"
+         ]
+      },
+      {
+         "name": "Zephaniah",
+         "abbr": "Zep",
+         "type": "hebrew",
+         "schedule": [
+            "1-3"
+         ]
+      },
+      {
+         "name": "Haggai",
+         "abbr": "Hag",
+         "type": "hebrew",
+         "schedule": [
+            "1, 2"
+         ]
+      },
+      {
+         "name": "Zechariah",
+         "abbr": "Zec",
+         "type": "hebrew",
+         "schedule": [
+            "1-6",
+            "7-10",
+            "11-14"
+         ]
+      },
+      {
+         "name": "Malachi",
+         "abbr": "Mal",
+         "type": "hebrew",
+         "schedule": [
+            "1-4"
+         ]
+      },
+      {
          "name": "Matthew",
          "abbr": "Mt",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5, 6",
@@ -20,6 +576,7 @@
       {
          "name": "Mark",
          "abbr": "Mr",
+         "type": "greek",
          "schedule": [
             "1-3",
             "4, 5",
@@ -33,6 +590,7 @@
       {
          "name": "Luke",
          "abbr": "Lu",
+         "type": "greek",
          "schedule": [
             "1",
             "2, 3",
@@ -52,6 +610,7 @@
       {
          "name": "John",
          "abbr": "Joh",
+         "type": "greek",
          "schedule": [
             "1-3",
             "4, 5",
@@ -67,6 +626,7 @@
       {
          "name": "Acts",
          "abbr": "Ac",
+         "type": "greek",
          "schedule": [
             "1-3",
             "4-6",
@@ -83,6 +643,7 @@
       {
          "name": "Romans",
          "abbr": "Ro",
+         "type": "greek",
          "schedule": [
             "1-3",
             "4-7",
@@ -94,6 +655,7 @@
       {
          "name": "1 Corinthians",
          "abbr": "1Co",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5-8",
@@ -105,6 +667,7 @@
       {
          "name": "2 Corinthians",
          "abbr": "2Co",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5-8",
@@ -114,6 +677,7 @@
       {
          "name": "Galatians",
          "abbr": "Ga",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5, 6"
@@ -122,6 +686,7 @@
       {
          "name": "Ephesians",
          "abbr": "Eph",
+         "type": "greek",
          "schedule": [
             "1, 2",
             "3-6"
@@ -130,6 +695,7 @@
       {
          "name": "Philippians",
          "abbr": "Php",
+         "type": "greek",
          "schedule": [
             "1-4"
          ]
@@ -137,6 +703,7 @@
       {
          "name": "Colossians",
          "abbr": "Col",
+         "type": "greek",
          "schedule": [
             "1-4"
          ]
@@ -144,6 +711,7 @@
       {
          "name": "1 Thessalonians",
          "abbr": "1Th",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5"
@@ -152,6 +720,7 @@
       {
          "name": "2 Thessalonians",
          "abbr": "2Th",
+         "type": "greek",
          "schedule": [
             "1-3"
          ]
@@ -159,6 +728,7 @@
       {
          "name": "1 Timothy",
          "abbr": "1Ti",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5, 6"
@@ -167,6 +737,7 @@
       {
          "name": "2 Timothy",
          "abbr": "2Ti",
+         "type": "greek",
          "schedule": [
             "1-4"
          ]
@@ -174,6 +745,7 @@
       {
          "name": "Titus",
          "abbr": "Tit",
+         "type": "greek",
          "schedule": [
             "1-3"
          ]
@@ -181,6 +753,7 @@
       {
          "name": "Philemon",
          "abbr": "Phm",
+         "type": "greek",
          "schedule": [
             "1"
          ]
@@ -188,6 +761,7 @@
       {
          "name": "Hebrews",
          "abbr": "Heb",
+         "type": "greek",
          "schedule": [
             "1-5",
             "6-9",
@@ -198,6 +772,7 @@
       {
          "name": "James",
          "abbr": "Jas",
+         "type": "greek",
          "schedule": [
             "1-5"
          ]
@@ -205,6 +780,7 @@
       {
          "name": "1 Peter",
          "abbr": "1Pe",
+         "type": "greek",
          "schedule": [
             "1-4",
             "5"
@@ -213,6 +789,7 @@
       {
          "name": "2 Peter",
          "abbr": "2Pe",
+         "type": "greek",
          "schedule": [
             "1-3"
          ]
@@ -220,6 +797,7 @@
       {
          "name": "1 John",
          "abbr": "1Jo",
+         "type": "greek",
          "schedule": [
             "1-5"
          ]
@@ -227,6 +805,7 @@
       {
          "name": "2 John",
          "abbr": "2Jo",
+         "type": "greek",
          "schedule": [
             "1"
          ]
@@ -234,6 +813,7 @@
       {
          "name": "3 John",
          "abbr": "3Jo",
+         "type": "greek",
          "schedule": [
             "1"
          ]
@@ -241,6 +821,7 @@
       {
          "name": "Jude",
          "abbr": "Jude",
+         "type": "greek",
          "schedule": [
             "1"
          ]
@@ -248,6 +829,7 @@
       {
          "name": "Revelation",
          "abbr": "Re",
+         "type": "greek",
          "schedule": [
             "1-3",
             "4-8",

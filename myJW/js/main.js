@@ -21,6 +21,12 @@ $.getJSON('js/books.json', function (data) {
    var i = 0;
    $(data.books).each(function(){
       this.id = i;
+      if (this.id === 0) {
+         $('#books').append("<h5 class='bibleSection'>HEBREW-ARAMAIC SCRIPTURES</h5>");
+      } else if (this.id === 39) {
+         $('#books').append("<h5 class='bibleSection'>CHRISTIAN GREEK SCRIPTURES</h5>");         
+      };
+
       var btnBook = "<div id='" + this.id + "' class='btnBook'>" + this.abbr + "</div>";
       $('#books').append(btnBook);
       i++;
