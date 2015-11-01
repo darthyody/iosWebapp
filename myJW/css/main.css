@@ -39,7 +39,7 @@
   background-color: #1d3254;
   color: white; }
 
-.btnSchedule {
+.btnSchedule, .btnCheckAll {
   line-height: 50px;
   display: block;
   float: left;

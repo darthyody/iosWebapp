@@ -31,25 +31,35 @@ $.getJSON('js/books.json', function (data) {
          }
          i++;
       });
+      $('#books').append("<div id='checkAll' class='btnCheckAll'><span id='done' class='glyphicon glyphicon-ok'></span>ALL</div>")
       setClickEvents();
    });
 });
 
 var setClickEvents = function() {
    $(".btnSchedule").click(function(e) {
-      if(localStorage.getItem(e.target.id)) {
-         $(this).off();
-         return;
-      }
-      localStorage.setItem(e.target.id, true);
-      addCompleteMarker(e.target);
-      setProgressBar();
+      markAsComplete(e.target);
+   });
+   $("#checkAll").click(function(e) {
+      $('.btnSchedule').each(function() {
+         markAsComplete(this);
+      });
    });
 }
 
 var addCompleteMarker = function(object) {
    $(object).addClass("complete");
    $(object).append("<span id='done' class='glyphicon glyphicon-ok'></span>");
+}
+
+var markAsComplete = function(object) {
+      if(localStorage.getItem(object.id)) {
+         $(this).off();
+         return;
+      }
+      localStorage.setItem(object.id, true);
+      addCompleteMarker(object);
+      setProgressBar();
 }
 
 var setProgressBar = function() {

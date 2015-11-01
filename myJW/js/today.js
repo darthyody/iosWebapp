@@ -26,7 +26,6 @@ $(function() {
             savedChap = book.schedule[complete];
          }
       });
-      console.log(savedBook.name, savedChap);
       $('#reading').html(savedBook.name + ' ' + savedChap);
    });
 });
