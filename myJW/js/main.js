@@ -18,6 +18,7 @@ $.getJSON('js/books.json', function (data) {
       $('#back').show();
       $('#reset').hide();
       $('#books').html("");
+      $('#pgTitle').html(data.books[e.target.id].name);
       var i = 0;
       $(data.books[e.target.id].schedule).each(function() {
          var id = data.books[e.target.id].name.replace(/\s+/g, '') + '_' + i;
