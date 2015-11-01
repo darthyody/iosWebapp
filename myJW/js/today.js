@@ -12,6 +12,6 @@ $(function() {
 
    $('#todayDate').html(formattedDate);
 
-   $('#test').html(localStorage.length);
+   $('#test').html(bkData);
 });
 
