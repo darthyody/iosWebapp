@@ -20,23 +20,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let indexURL = NSBundle.mainBundle().URLForResource("index", withExtension: "html")
+        let indexURL = NSBundle.mainBundle().URLForResource("schedule", withExtension: "html")
         let requestOBJ = NSURLRequest(URL: indexURL!)
         myWebView.loadRequest(requestOBJ)
     }
 
     @IBAction func todayBtn(sender: AnyObject) {
-        let HTMLString: String! = "<h1>Today's Reading</h1>"
-        myWebView.loadHTMLString(HTMLString, baseURL: nil)
+        let indexURL = NSBundle.mainBundle().URLForResource("today", withExtension: "html")
+        let requestOBJ = NSURLRequest(URL: indexURL!)
+        myWebView.loadRequest(requestOBJ)
     }
     @IBAction func readerBtn(sender: AnyObject) {
-        let indexURL = NSBundle.mainBundle().URLForResource("index", withExtension: "html")
+        let indexURL = NSBundle.mainBundle().URLForResource("schedule", withExtension: "html")
         let requestOBJ = NSURLRequest(URL: indexURL!)
         myWebView.loadRequest(requestOBJ)
     }
     @IBAction func settingsBtn(sender: AnyObject) {
-        let HTMLString: String! = "<h1>Settings</h1>"
-        myWebView.loadHTMLString(HTMLString, baseURL: nil)
+        let indexURL = NSBundle.mainBundle().URLForResource("settings", withExtension: "html")
+        let requestOBJ = NSURLRequest(URL: indexURL!)
+        myWebView.loadRequest(requestOBJ)
     }
 }
 
