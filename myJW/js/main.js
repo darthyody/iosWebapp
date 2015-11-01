@@ -1,3 +1,4 @@
+var bkData;
 $.getJSON('js/books.json', function (data) {
    var i = 0;
    $(data.books).each(function(){
@@ -13,6 +14,8 @@ $.getJSON('js/books.json', function (data) {
       i++;
    });
 }).then(function(data) {
+   bkData = data;
+   setProgressBar(data);
    $('#back').hide();
    $('.btnBook').click(function(e) {
       $('#back').show();
@@ -25,7 +28,6 @@ $.getJSON('js/books.json', function (data) {
          var btnSchedule = "<div id='" + id + "' class='btnSchedule'>" + this + "</div>";
          $('#books').append(btnSchedule);
          if(localStorage.getItem(id)) {
-            console.log(id);
             addCompleteMarker($('#' + id));
          }
          i++;
@@ -39,18 +41,33 @@ $('#reset').click(function() {
    if(yesNo) {
       localStorage.clear();
    }
+   setProgressBar();
 });
 
 var setClickEvents = function() {
    $(".btnSchedule").click(function(e) {
+      if(localStorage.getItem(e.target.id)) {
+         $(this).off();     
+         return;
+      }
+      localStorage.setItem(e.target.id, true);    
       addCompleteMarker(e.target);
-      localStorage.setItem(e.target.id, true);
-      console.log(e.target.id);
-      $(e.target).off();
+      setProgressBar();
    });
 }
 
 var addCompleteMarker = function(object) {
    $(object).addClass("complete");
-   $(object).append("<span class='glyphicon glyphicon-ok'></span>");   
+   $(object).append("<span id='done' class='glyphicon glyphicon-ok'></span>");   
+}
+
+var setProgressBar = function() {
+   var i = 0;
+   $(bkData.books).each(function() {
+      $(this.schedule).each(function() {
+         i++;
+      });
+   });
+   var finished = localStorage.length;
+   $('#progress').html(finished + '/' + i + ' completed');
 }
