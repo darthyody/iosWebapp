@@ -1,11 +1,5 @@
-$(function() {
-   var setDate = localStorage.getItem('startDate');
-   $('#startDate').html(setDate);
-});
-
 $('#save').click(function() {
-   var startDate = $('#startDate').html();
-   localStorage.setItem('startDate', startDate);
+   localStorage.removeItem('startDate');
 });
 
 $('#reset').click(function() {
