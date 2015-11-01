@@ -16,6 +16,7 @@ $.getJSON('js/books.json', function (data) {
    $('#back').hide();
    $('.btnBook').click(function(e) {
       $('#back').show();
+      $('#reset').hide();
       $('#books').html("");
       var i = 0;
       $(data.books[e.target.id].schedule).each(function() {
@@ -30,6 +31,13 @@ $.getJSON('js/books.json', function (data) {
       });
       setClickEvents();
    });
+});
+
+$('#reset').click(function() {
+   var yesNo = confirm("Are you sure you want to reset your schedule?");
+   if(yesNo) {
+      localStorage.clear();
+   }
 });
 
 var setClickEvents = function() {
