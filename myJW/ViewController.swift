@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let indexURL = NSBundle.mainBundle().URLForResource("schedule", withExtension: "html")
+        let indexURL = NSBundle.mainBundle().URLForResource("today", withExtension: "html")
         let requestOBJ = NSURLRequest(URL: indexURL!)
         myWebView.loadRequest(requestOBJ)
     }
