@@ -109,6 +109,7 @@ function addCompleteMarker(object) {
 function setClickEvents() {
    $(".btnSchedule").click(function(e) {
       markAsComplete(e.target);
+      $(e.target).off();
    });
    $("#checkAll").click(function(e) {
       $('.btnSchedule').each(function() {
@@ -118,12 +119,13 @@ function setClickEvents() {
 }
 
 function getChapID(intBookID, intChapterNum) {
-   console.log(intChapterNum);
-   var intChapID = intBookID;
-   if (intChapterNum.length === 1) {
-      intChapID += "00" + intChapterNum;
-   } else if (intChapterNum.length == 2) {
-      intChapID += "0" + intChapterNum;
+   var intChapID = "";
+   if (intChapterNum.toString().length === 1) {
+      intChapID = intBookID + "00" + intChapterNum.toString();
+   } else if (intChapterNum.toString().length === 2) {
+      intChapID = intBookID + "0" + intChapterNum.toString();
+   } else if (intChapterNum.toString().length === 3) {
+      intChapID = intBookID + intChapterNum.toString();
    }
    return intChapID;
 }
