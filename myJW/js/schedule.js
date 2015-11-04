@@ -44,13 +44,22 @@ function markAsComplete(object) {
          savedProgress.CompletedChapters.push(object.id);
          localStorage.setItem('progress', JSON.stringify(savedProgress));
       }
-      console.log(savedProgress.CompletedChapters);
       addCompleteMarker(object);
 }
 
 function addCompleteMarker(object) {
    $(object).addClass("complete");
    $(object).append("<span id='done' class='glyphicon glyphicon-ok'></span>");
+}
+
+function removeCompleteMarker(object) {
+   $(object).removeClass("complete");
+   $(object).children("span:first").remove();
+
+   var savedProgress = JSON.parse(localStorage.getItem('progress'));
+   var index = $.inArray(object.id, savedProgress.CompletedChapters);
+   savedProgress.CompletedChapters.splice(index, 1);
+   localStorage.setItem('progress', JSON.stringify(savedProgress));
 }
 
 function isChapterComplete(intChapID) {
@@ -104,7 +113,7 @@ function listBookChapters(d, e, intBookID) {
             markAsComplete(e.target);
             setProgressBar(d.books);
          } else {
-            console.log("remove marker");
+            removeCompleteMarker(this);
          }
       });
    }
