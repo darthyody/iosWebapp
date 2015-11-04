@@ -1,7 +1,12 @@
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var days   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 $(function() {
+   $('#todayDate').html(getTodaysDate());
+   getNextReading();;
+});
+
+function getTodaysDate() {
+   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+   var days   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
    var date = new Date();
 
    var day = days[date.getDay()];
@@ -9,24 +14,47 @@ $(function() {
    var dayDate = date.getDate();
    var year = date.getFullYear();
    var formattedDate = day + ', ' + month + ' ' + dayDate + ', ' + year;
+   return formattedDate;
+}
 
-   $('#todayDate').html(formattedDate);
+function getBookName(aBooks, intBookID) {
+   for (var i = 0; i < aBooks.length; i++) {
+      if (aBooks[i].ID === intBookID) {
+         return aBooks[i].Name;
+      }
+   }
+}
 
-   $.getJSON('js/books.json', function(data) {
-      var total = 0;
-      var complete = localStorage.length;
-      var savedBook = '';
-      var savedChap = '';
-      $(data.books).each(function() {
-         var book = this;
-         if (complete >= book.schedule.length) {
-            complete = complete - book.schedule.length;
-         } else if (!savedBook) {
-            savedBook = book;
-            savedChap = book.schedule[complete];
+function formatReading(aReading) {
+   $.getJSON('js/json/bibleBooks.json', function(d) {
+      var strReading = "";
+      for (var i = 0; i < aReading.length; i++) {
+         if (i > 0) {
+            strReading += ", ";
          }
-      });
-      $('#reading').html(savedBook.name + ' ' + savedChap);
-   });
-});
+         var bookID = aReading[i].substring(0,2);
+         var bkName = getBookName(d.books, bookID);
+         strReading += bkName;
+         var chapID = aReading[i].substring(2,5);
+         strReading += " " + parseInt(chapID);
+      }
+      $('#reading').html(strReading);
+   })
+}
 
+function getNextReading() {
+   return $.getJSON('js/json/schedule01.json', function(d) {
+      var progress = JSON.parse(localStorage.getItem('progress'));
+      var completedChapters = (progress) ? progress.CompletedChapters : [];
+      for (var i = 0; i < d.Schedule.length; i++) {
+         for (var j = 0; j < d.Schedule[i].Reading.length; j++) {
+            var read = d.Schedule[i].Reading[j];
+            if ($.inArray(read, completedChapters) === -1) {
+               // console.log(d.Schedule[i]);
+               formatReading(d.Schedule[i].Reading);
+               return;
+            }
+         }
+      }
+   });
+}
