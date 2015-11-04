@@ -1,67 +1,14 @@
-// var bkData;
-// $.getJSON('js/books.json', function (data) {
-//    var i = 0;
-//    $(data.books).each(function(){
-//       this.id = i;
-//       if (this.id === 0) {
-//          $('#books').append("<h5 class='bibleSection'>HEBREW-ARAMAIC SCRIPTURES</h5>");
-//       } else if (this.id === 39) {
-//          $('#books').append("<h5 class='bibleSection'>CHRISTIAN GREEK SCRIPTURES</h5>");
-//       };
-
-//       var btnBook = "<div id='" + this.id + "' class='btnBook'>" + this.abbr + "</div>";
-//       $('#books').append(btnBook);
-//       i++;
-//    });
-// }).then(function(data) {
-//    bkData = data;
-//    setProgressBar(data);
-//    $('#back').hide();
-//    $('.btnBook').click(function(e) {
-//       $('#back').show();
-//       $('#books').html("");
-//       $('#pgTitle').html(data.books[e.target.id].name);
-//       var i = 0;
-//       $(data.books[e.target.id].schedule).each(function() {
-//          var id = data.books[e.target.id].name.replace(/\s+/g, '') + '_' + i;
-//          var btnSchedule = "<div id='" + id + "' class='btnSchedule'>" + this + "</div>";
-//          $('#books').append(btnSchedule);
-//          if(localStorage.getItem(id)) {
-//             addCompleteMarker($('#' + id));
-//          }
-//          i++;
-//       });
-//       $('#books').append("<div id='checkAll' class='btnCheckAll'><span id='done' class='glyphicon glyphicon-ok'></span>ALL</div>")
-//       setClickEvents();
-//    });
-// });
-
-// var setClickEvents = function() {
-//    $(".btnSchedule").click(function(e) {
-//       markAsComplete(e.target);
-//    });
-//    $("#checkAll").click(function(e) {
-//       $('.btnSchedule').each(function() {
-//          markAsComplete(this);
-//       });
-//    });
-// }
-
-
-// var setProgressBar = function() {
-//    var value = 0;
-
-//    var i = 0;
-//    $(bkData.books).each(function() {
-//       $(this.schedule).each(function() {
-//          i++;
-//       });
-//    });
-//    var finished = localStorage.length;
-//    var progress = Math.round((finished / i) * 100);
-//    console.log(progress + '%');
-//    $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress).html(progress + '%');
-// }
+function setProgressBar(aBooks) {
+   var value = 0;
+   var i = 0;
+   $(aBooks).each(function() {
+      i += this.Chapters;
+   });
+   var progress = JSON.parse(localStorage.getItem('progress'));
+   var finished = progress.CompletedChapters.length;
+   var progress = Math.round((finished / i) * 100);
+   $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress).html(progress + '%');
+}
 
 function listBooksView() {
    return $.getJSON('js/json/bibleBooks.json', function(d) {
@@ -80,25 +27,21 @@ function listBooksView() {
             $('#books').append($grkHeading);
          }
       });
+      setProgressBar(d.books);
    });
 }
 
 function markAsComplete(object) {
-      var savedProgress = localStorage.getItem('progress');
+      var savedProgress = JSON.parse(localStorage.getItem('progress'));
       if (!savedProgress) {
          savedProgress = initSaveProgress();
       }
-      savedProgress.CompletedChapters.push(object);
+      if (!isChapterComplete(object.id)) {
+         savedProgress.CompletedChapters.push(object.id);
+         localStorage.setItem('progress', JSON.stringify(savedProgress));
+      }
       console.log(savedProgress.CompletedChapters);
       addCompleteMarker(object);
-      // setProgressBar();
-}
-
-function initSaveProgress() {
-   var progress = {};
-   progress.StartDate = "November 3, 2015";
-   progress.CompletedChapters = [];
-   return progress;
 }
 
 function addCompleteMarker(object) {
@@ -106,16 +49,18 @@ function addCompleteMarker(object) {
    $(object).append("<span id='done' class='glyphicon glyphicon-ok'></span>");
 }
 
-function setClickEvents() {
-   $(".btnSchedule").click(function(e) {
-      markAsComplete(e.target);
-      $(e.target).off();
-   });
-   $("#checkAll").click(function(e) {
-      $('.btnSchedule').each(function() {
-         markAsComplete(this);
-      });
-   });
+function isChapterComplete(intChapID) {
+   var savedProgress = JSON.parse(localStorage.getItem('progress'));
+   var completeChapters = (savedProgress) ? savedProgress.CompletedChapters : [];
+   return ($.inArray(intChapID, completeChapters) !== -1);
+}
+
+function initSaveProgress() {
+   localStorage.clear();
+   var progress = {};
+   progress.StartDate = "November 3, 2015";
+   progress.CompletedChapters = [];
+   return progress;
 }
 
 function getChapID(intBookID, intChapterNum) {
@@ -135,7 +80,7 @@ listBooksView().then(function(d) {
       var chaps = 0;
       $(d.books).each(function() {
          if(this.ID === intBookID) {
-            book =  this;
+            book = this;
          }
       });
       var $chapHeader = $("<h5></h5>", {class: "bibleSection"});
@@ -144,12 +89,29 @@ listBooksView().then(function(d) {
       $('#pgTitle').html(book.Name);
       $('#back').show();
       for(var i = 1; i <= book.Chapters; i++) {
-         $btnChap = $("<div></div>", {id: getChapID(book.ID, i), class: "btnSchedule"});
+         var id = getChapID(book.ID, i)
+         $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
          $btnChap.html(i);
          $('#books').append($btnChap);
+         if (isChapterComplete(id)) {
+            addCompleteMarker($btnChap);
+         }
+         $($btnChap).click(function(e) {
+            if (!isChapterComplete(e.target.id)) {
+               markAsComplete(e.target);
+               setProgressBar(d.books);
+            } else {
+               console.log("remove marker");
+            }
+         });
       }
       $('#books').append("<div id='checkAll' class='btnCheckAll'><span id='done' class='glyphicon glyphicon-ok'></span>ALL</div>")
-      setClickEvents();
+      $("#checkAll").click(function(e) {
+         $('.btnSchedule').each(function() {
+            markAsComplete(this);
+            setProgressBar(d.books);
+         });
+      });
    }
 
    $('.btnBook').click(function(e) {
