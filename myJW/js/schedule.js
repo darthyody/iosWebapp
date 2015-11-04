@@ -26,6 +26,10 @@ function listBooksView() {
             $grkHeading.html("CHRISTIAN GREEK SCRIPTURES");
             $('#books').append($grkHeading);
          }
+
+         $btnBook.click(function(e) {
+            listBookChapters(d, e, e.target.id);
+         });
       });
       setProgressBar(d.books);
    });
@@ -75,46 +79,46 @@ function getChapID(intBookID, intChapterNum) {
    return intChapID;
 }
 
-listBooksView().then(function(d) {
-   function listBookChapters(intBookID) {
-      var chaps = 0;
-      $(d.books).each(function() {
-         if(this.ID === intBookID) {
-            book = this;
-         }
-      });
-      var $chapHeader = $("<h5></h5>", {class: "bibleSection"});
-      $chapHeader.html("CHAPTERS");
-      $('#books').html($chapHeader);
-      $('#pgTitle').html(book.Name);
-      $('#back').show();
-      for(var i = 1; i <= book.Chapters; i++) {
-         var id = getChapID(book.ID, i)
-         $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
-         $btnChap.html(i);
-         $('#books').append($btnChap);
-         if (isChapterComplete(id)) {
-            addCompleteMarker($btnChap);
-         }
-         $($btnChap).click(function(e) {
-            if (!isChapterComplete(e.target.id)) {
-               markAsComplete(e.target);
-               setProgressBar(d.books);
-            } else {
-               console.log("remove marker");
-            }
-         });
+function listBookChapters(d, e, intBookID) {
+   var chaps = 0;
+   $(d.books).each(function() {
+      if(this.ID === intBookID) {
+         book = this;
       }
-      $('#books').append("<div id='checkAll' class='btnCheckAll'><span id='done' class='glyphicon glyphicon-ok'></span>ALL</div>")
-      $("#checkAll").click(function(e) {
-         $('.btnSchedule').each(function() {
-            markAsComplete(this);
+   });
+   var $chapHeader = $("<h5></h5>", {class: "bibleSection"});
+   $chapHeader.html("CHAPTERS");
+   $('#books').html($chapHeader);
+   $('#pgTitle').html(book.Name);
+   $('#back').show();
+   for(var i = 1; i <= book.Chapters; i++) {
+      var id = getChapID(book.ID, i)
+      $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
+      $btnChap.html(i);
+      $('#books').append($btnChap);
+      if (isChapterComplete(id)) {
+         addCompleteMarker($btnChap);
+      }
+      $($btnChap).click(function(e) {
+         if (!isChapterComplete(e.target.id)) {
+            markAsComplete(e.target);
             setProgressBar(d.books);
-         });
+         } else {
+            console.log("remove marker");
+         }
       });
    }
-
-   $('.btnBook').click(function(e) {
-      listBookChapters(e.target.id);
+   $('#books').append("<div id='checkAll' class='btnCheckAll'><span id='done' class='glyphicon glyphicon-ok'></span>ALL</div>")
+   $("#checkAll").click(function(e) {
+      $('.btnSchedule').each(function() {
+         markAsComplete(this);
+         setProgressBar(d.books);
+      });
    });
-});
+}
+
+function init() {
+   listBooksView();
+}
+
+init();
