@@ -27,15 +27,15 @@ function getBookName(aBooks, intBookID) {
 
 function formatReading(aReading) {
    $.getJSON('js/json/bibleBooks.json', function(d) {
-      var strReading = "";
-      for (var i = 0; i < aReading.length; i++) {
+      var strReading = "<div class='txt-center'><h4>Day " + parseInt(aReading.ID) + "</h4>";
+      for (var i = 0; i < aReading.Reading.length; i++) {
          if (i > 0) {
             strReading += ", ";
          }
-         var bookID = aReading[i].substring(0,2);
+         var bookID = aReading.Reading[i].substring(0,2);
          var bkName = getBookName(d.books, bookID);
          strReading += bkName;
-         var chapID = aReading[i].substring(2,5);
+         var chapID = aReading.Reading[i].substring(2,5);
          strReading += " " + parseInt(chapID);
       }
       $('#reading').html(strReading);
@@ -51,7 +51,7 @@ function getNextReading() {
             var read = d.Schedule[i].Reading[j];
             if ($.inArray(read, completedChapters) === -1) {
                // console.log(d.Schedule[i]);
-               formatReading(d.Schedule[i].Reading);
+               formatReading(d.Schedule[i]);
                return;
             }
          }
