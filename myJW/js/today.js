@@ -26,23 +26,59 @@ function getBookName(aBooks, intBookID) {
    }
 }
 
-function formatReading(aReading) {
+function listReading(Reading) {
+
+}
+
+function formatReading(aSchedule) {
    $.getJSON('js/json/bibleBooks.json', function(d) {
-      var strReading = "<div class='txt-center'><h4>Day " + parseInt(aReading.ID) + "</h4>";
-      for (var i = 0; i < aReading.Reading.length; i++) {
-         if (i > 0) {
-            strReading += ", ";
+      var strReading = "<div class='txt-center'><h4>Day " + parseInt(aSchedule.ID) + "</h4>";
+      var aReading;
+      for (var i = 0; i < aSchedule.Reading.length; i++) {
+         var oRead    = {};
+         var bookID   = aSchedule.Reading[i].substring(0,2);
+         var bookName = getBookName(d.books, bookID);
+         var chapID   = parseInt(aSchedule.Reading[i].substring(2,5));
+
+         oRead.bookID   = bookID;
+         oRead.bookName = bookName;
+         oRead.chapters = [chapID];
+
+         if (!aReading) {
+            aReading = [];
+            aReading.push(oRead);
+         } else {
+            $(aReading).each(function() {
+               if (this.bookID === oRead.bookID) {
+                  this.chapters.push(chapID)
+               } else {
+                  aReading.push(oRead);
+               }
+            });
          }
-         var bookID = aReading.Reading[i].substring(0,2);
-         var bkName = getBookName(d.books, bookID);
-         strReading += bkName;
-         var chapID = aReading.Reading[i].substring(2,5);
-         strReading += " " + parseInt(chapID);
       }
+      var strReading;
+      $(aReading).each(function() {
+         if (!strReading) {
+            strReading = this.bookName;
+         } else {
+            strReading += "<br>" + this.bookName;
+         }
+         var chapters;
+         for (var i = 0; i < this.chapters.length; i++) {
+            if (!chapters) {
+               chapters = this.chapters[i];
+            } else if (i === (this.chapters.length - 1)) {
+               chapters += "-" + this.chapters[i];
+            }
+         }
+         strReading += " " + chapters;
+      });
+      console.log(strReading);
       $('#reading').html(strReading);
       $('#done').click(function(e) {
-         for (var i = 0; i < aReading.Reading.length; i++) {
-            markAsComplete(aReading.Reading[i]);
+         for (var i = 0; i < aSchedule.Reading.length; i++) {
+            markAsComplete(aSchedule.Reading[i]);
             getNextReading();
          }
       });
