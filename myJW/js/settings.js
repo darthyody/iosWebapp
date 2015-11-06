@@ -1,5 +1,8 @@
 $('#save').click(function() {
-   localStorage.removeItem('startDate');
+   var date = $('#startdate').val();
+   var blOk = $('#autocomplete:checked').val();
+   blOk = (blOk) ? true : false;
+   $('#teststuff').html('D: ' + date + '<br>R: ' + blOk);
 });
 
 $('#reset').click(function() {
@@ -8,3 +11,9 @@ $('#reset').click(function() {
       localStorage.clear();
    }
 });
+
+// Enter the date you started your bible reading?
+// Month, Day, Year
+
+// The scheduled reading for today is ...
+// Would you like to mark as complete all of the scheduled readings up to this point?
