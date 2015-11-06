@@ -20,24 +20,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let indexURL = NSBundle.mainBundle().URLForResource("today", withExtension: "html")
-        let requestOBJ = NSURLRequest(URL: indexURL!)
+        let path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+        var url = NSURL(fileURLWithPath: path!)
+        url = NSURL(string: "#", relativeToURL: url)!
+        let requestOBJ = NSURLRequest(URL: url)
         myWebView.loadRequest(requestOBJ)
     }
 
     @IBAction func todayBtn(sender: AnyObject) {
-        let indexURL = NSBundle.mainBundle().URLForResource("today", withExtension: "html")
-        let requestOBJ = NSURLRequest(URL: indexURL!)
+        let path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+        var url = NSURL(fileURLWithPath: path!)
+        url = NSURL(string: "#today", relativeToURL: url)!
+        let requestOBJ = NSURLRequest(URL: url)
         myWebView.loadRequest(requestOBJ)
     }
     @IBAction func readerBtn(sender: AnyObject) {
-        let indexURL = NSBundle.mainBundle().URLForResource("schedule", withExtension: "html")
-        let requestOBJ = NSURLRequest(URL: indexURL!)
+        let path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+        var url = NSURL(fileURLWithPath: path!)
+        url = NSURL(string: "#schedule", relativeToURL: url)!
+        let requestOBJ = NSURLRequest(URL: url)
         myWebView.loadRequest(requestOBJ)
     }
     @IBAction func settingsBtn(sender: AnyObject) {
-        let indexURL = NSBundle.mainBundle().URLForResource("settings", withExtension: "html")
-        let requestOBJ = NSURLRequest(URL: indexURL!)
+        let path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+        var url = NSURL(fileURLWithPath: path!)
+        url = NSURL(string: "#settings", relativeToURL: url)!
+        let requestOBJ = NSURLRequest(URL: url)
         myWebView.loadRequest(requestOBJ)
     }
 }

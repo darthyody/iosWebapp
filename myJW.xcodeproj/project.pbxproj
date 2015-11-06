@@ -19,6 +19,7 @@
 		D7DC987A1BE14F5E002C6982 /* css in Resources */ = {isa = PBXBuildFile; fileRef = D7DC98791BE14F5E002C6982 /* css */; };
 		D7DC987E1BE14F8C002C6982 /* js in Resources */ = {isa = PBXBuildFile; fileRef = D7DC987D1BE14F8C002C6982 /* js */; };
 		D7DC98801BE14F98002C6982 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D7DC987F1BE14F98002C6982 /* fonts */; };
+		D7EED2461BED564800712819 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7EED2451BED564800712819 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D7DC98791BE14F5E002C6982 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		D7DC987D1BE14F8C002C6982 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D7DC987F1BE14F98002C6982 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		D7EED2451BED564800712819 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = myJW/index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				D752FE911BE666F400216674 /* schedule.html */,
 				D752FE921BE666F400216674 /* settings.html */,
 				D752FE931BE666F400216674 /* today.html */,
+				D7EED2451BED564800712819 /* index.html */,
 				D7A13BD71BE0F0C50052B3FE /* myJW */,
 				D7A13BEC1BE0F0C50052B3FE /* myJWTests */,
 				D7A13BD61BE0F0C50052B3FE /* Products */,
@@ -202,6 +205,7 @@
 				D7DC987A1BE14F5E002C6982 /* css in Resources */,
 				D7DC987E1BE14F8C002C6982 /* js in Resources */,
 				D752FE961BE666F400216674 /* today.html in Resources */,
+				D7EED2461BED564800712819 /* index.html in Resources */,
 				D752FE901BE3A3D200216674 /* Launch Screen.storyboard in Resources */,
 				D7DC98801BE14F98002C6982 /* fonts in Resources */,
 				D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */,
