@@ -9,17 +9,16 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <h2 id="pgTitle" class="txt-center">Settings</h2>
-                <div class="form-group">
-                    <div class='input-group date' id='datepicker'>
-                        <label>Reading Start Date
-                            <input id="startDate" type='date' class="form-control"/>
-                        </label>
-                    </div>
-                    <br>
-                    <div class='input-group' id='submits'>
-                        <input id="reset" type="button" class="btn btn-default" value="RESET">
-                        <input id="save" type="button" class="btn btn-primary" value="SAVE">
-                    </div>
+                <label for="startdate">Enter your bible reading start date:</label>
+                <input id="startdate" type="date"><br><br>
+                The scheduled reading for today is Ezra 3-5.<br>
+                <label for="autocomplete">Mark as complete all of the scheduled readings up to this point?</label>
+                <input id="autocomplete" name="yn" type="radio">Yes
+                <input id="nocomplete" name="yn" type="radio">No
+                <br><br>
+                <div class='input-group' id='submits'>
+                    <input id="reset" type="button" class="btn btn-default" value="RESET">
+                    <input id="save" type="button" class="btn btn-primary" value="SAVE">
                 </div>
             </div>
             <div class="col-sm-4"></div>
