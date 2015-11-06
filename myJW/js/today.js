@@ -26,10 +26,6 @@ function getBookName(aBooks, intBookID) {
    }
 }
 
-function listReading(Reading) {
-
-}
-
 function formatReading(aSchedule) {
    $.getJSON('js/json/bibleBooks.json', function(d) {
       var strReading = "<div class='txt-center'><h4>Day " + parseInt(aSchedule.ID) + "</h4>";
@@ -112,12 +108,20 @@ function markAsComplete(intChapID) {
       }
 }
 
-function initSaveProgress() {
+function initSaveProgress(date) {
+   var newDate = (date) ? date : getFormattedDate(new Date());
    localStorage.clear();
    var progress = {};
-   progress.StartDate = "November 3, 2015";
+   progress.StartDate = newDate;
    progress.CompletedChapters = [];
    return progress;
+}
+
+function getFormattedDate(objDate) {
+   var day   = objDate.getDate();
+   var month = objDate.getMonth() + 1;
+   var year  = objDate.getFullYear();
+   return year + ' ' + month + ' ' + day;
 }
 
 function isChapterComplete(intChapID) {

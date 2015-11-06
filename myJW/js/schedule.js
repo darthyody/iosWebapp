@@ -69,11 +69,19 @@ function isChapterComplete(intChapID) {
 }
 
 function initSaveProgress() {
+   var newDate = (date) ? date : getFormattedDate(new Date());
    localStorage.clear();
    var progress = {};
-   progress.StartDate = "November 3, 2015";
+   progress.StartDate = newDate;
    progress.CompletedChapters = [];
    return progress;
+}
+
+function getFormattedDate(objDate) {
+   var day   = objDate.getDate();
+   var month = objDate.getMonth() + 1;
+   var year  = objDate.getFullYear();
+   return year + ' ' + month + ' ' + day;
 }
 
 function getChapID(intBookID, intChapterNum) {
