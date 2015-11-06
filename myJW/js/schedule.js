@@ -11,28 +11,26 @@ function setProgressBar(aBooks) {
 }
 
 function listBooksView() {
-   return $.getJSON('js/json/bibleBooks.json', function(d) {
-      $('#back').hide();
-      var $hbrHeading = $("<h5></h5>", {class: "bibleSection"});
-      $hbrHeading.html("HEBREW-ARAMAIC SCRIPTURES");
-      $('#books').append($hbrHeading);
-      $(d.books).each(function() {
-         var $btnBook = $("<div></div>", {id: this.ID, class: "btnBook"});
-         $btnBook.html(this.Abbr);
-         $btnBook.css({"background-color": this.Color});
-         $('#books').append($btnBook);
-         if (this.ID === "39") {
-            var $grkHeading = $("<h5></h5>", {class: "bibleSection"});
-            $grkHeading.html("CHRISTIAN GREEK SCRIPTURES");
-            $('#books').append($grkHeading);
-         }
+   $('#back').hide();
+   var $hbrHeading = $("<h5></h5>", {class: "bibleSection"});
+   $hbrHeading.html("HEBREW-ARAMAIC SCRIPTURES");
+   $('#books').append($hbrHeading);
+   $(Bible.books).each(function() {
+      var $btnBook = $("<div></div>", {id: this.ID, class: "btnBook"});
+      $btnBook.html(this.Abbr);
+      $btnBook.css({"background-color": this.Color});
+      $('#books').append($btnBook);
+      if (this.ID === "39") {
+         var $grkHeading = $("<h5></h5>", {class: "bibleSection"});
+         $grkHeading.html("CHRISTIAN GREEK SCRIPTURES");
+         $('#books').append($grkHeading);
+      }
 
-         $btnBook.click(function(e) {
-            listBookChapters(d, e, e.target.id);
-         });
+      $btnBook.click(function(e) {
+         listBookChapters(e);
       });
-      setProgressBar(d.books);
    });
+   setProgressBar(Bible.books);
 }
 
 function markAsComplete(object) {
@@ -68,7 +66,7 @@ function isChapterComplete(intChapID) {
    return ($.inArray(intChapID, completeChapters) !== -1);
 }
 
-function initSaveProgress() {
+function initSaveProgress(date) {
    var newDate = (date) ? date : getFormattedDate(new Date());
    localStorage.clear();
    var progress = {};
@@ -96,10 +94,10 @@ function getChapID(intBookID, intChapterNum) {
    return intChapID;
 }
 
-function listBookChapters(d, e, intBookID) {
+function listBookChapters(e) {
    var chaps = 0;
-   $(d.books).each(function() {
-      if(this.ID === intBookID) {
+   $(Bible.books).each(function() {
+      if(this.ID === e.target.id) {
          book = this;
       }
    });
@@ -119,7 +117,7 @@ function listBookChapters(d, e, intBookID) {
       $($btnChap).click(function(e) {
          if (!isChapterComplete(e.target.id)) {
             markAsComplete(e.target);
-            setProgressBar(d.books);
+            setProgressBar(Bible.books);
          } else {
             removeCompleteMarker(this);
          }
@@ -129,13 +127,13 @@ function listBookChapters(d, e, intBookID) {
    $("#checkAll").click(function(e) {
       $('.btnSchedule').each(function() {
          markAsComplete(this);
-         setProgressBar(d.books);
+         setProgressBar(Bible.books);
       });
    });
 }
 
 function init() {
-   listBooksView();
+   setTimeout(listBooksView, 10);
 }
 
 init();

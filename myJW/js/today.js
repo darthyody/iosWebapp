@@ -1,8 +1,8 @@
-
 function init() {
    $('#todayDate').html(getTodaysDate());
    getNextReading();
 }
+
 init();
 
 function getTodaysDate() {
@@ -70,7 +70,6 @@ function formatReading(aSchedule) {
          }
          strReading += " " + chapters;
       });
-      console.log(strReading);
       $('#reading').html(strReading);
       $('#done').click(function(e) {
          for (var i = 0; i < aSchedule.Reading.length; i++) {
