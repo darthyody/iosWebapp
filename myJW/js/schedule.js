@@ -39,11 +39,9 @@ function listBooksView() {
 
 function isBookFinished(book) {
    var progress = JSON.parse(localStorage.getItem('progress'));
-   for (var i = 0; i < progress.CompletedChapters.length; i++) {
-      var chapid = progress.CompletedChapters[i];
-      var bookid = chapid.substring(0, 2);
-      console.log(bookid);
-   };
+   $(progress.CompletedChapters).each(function() {
+      console.log(book.Chapters);
+   });
    return false;
 }
 
