@@ -26,13 +26,23 @@ function listBooksView() {
             $grkHeading.html("CHRISTIAN GREEK SCRIPTURES");
             $('#books').append($grkHeading);
          }
-
+         if (isBookFinished(this)) {
+            addCompleteMarker($btnBook);
+         }
          $btnBook.click(function(e) {
             listBookChapters(d, e, e.target.id);
          });
       });
       setProgressBar(d.books);
    });
+}
+
+function isBookFinished(book) {
+   var progress = JSON.parse(localStorage.getItem('progress'));
+   $(progress.CompletedChapters).each(function() {
+      console.log(book.Chapters);
+   });
+   return false;
 }
 
 function markAsComplete(object) {
