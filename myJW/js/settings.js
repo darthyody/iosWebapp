@@ -13,15 +13,15 @@ init();
 $('#save').click(function() {
    var date = getFormattedDate(new Date($('#startdate').val()));
    var blOk = ($('#autocomplete:checked').val()) ? true : false;
-   $('#teststuff').html('D: ' + date + '<br>R: ' + blOk);
-
    var progress = JSON.parse(localStorage.getItem('progress'));
+
    if(!progress) {
       initSaveProgress(date);
    } else {
       progress.StartDate = date;
    }
    localStorage.setItem('progress', JSON.stringify(progress));
+   location.reload();
 });
 
 $('#reset').click(function() {
