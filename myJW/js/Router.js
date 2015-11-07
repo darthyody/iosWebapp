@@ -13,6 +13,7 @@ Page.loadChapters = function() {
 
 Page.loadSchedule = function() {
    $('#main').load('schedule.html');
+   setTimeout(Bible.listBooksView, 10);
 }
 
 Page.loadSettings = function() {
