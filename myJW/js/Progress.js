@@ -50,4 +50,16 @@ Progress.updateBar = function(aBooks) {
    $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress).html(progress + '%');
 }
 
+Progress.getNextReading = function() {
+   for (var i = 0; i < Schedule.Schedule.length; i++) {
+      for (var j = 0; j < Schedule.Schedule[i].Reading.length; j++) {
+         var read = Schedule.Schedule[i].Reading[j];
+         if ($.inArray(read, Progress.CompletedChapters) === -1) {
+            Schedule.formatReading(Schedule.Schedule[i]);
+            return;
+         }
+      }
+   }
+}
+
 Progress.init();

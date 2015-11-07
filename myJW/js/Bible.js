@@ -26,6 +26,14 @@ Bible.getChapID = function(intBookID, intChapterNum) {
    return intChapID;
 }
 
+Bible.getBookName = function(aBooks, intBookID) {
+   for (var i = 0; i < aBooks.length; i++) {
+      if (aBooks[i].ID === intBookID) {
+         return aBooks[i].Name;
+      }
+   }
+}
+
 Bible.listBookChapters = function(e) {
    var chaps = 0;
    $(Bible.books).each(function() {

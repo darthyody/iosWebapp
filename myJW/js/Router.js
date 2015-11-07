@@ -4,7 +4,10 @@ Page.resetPage = function() {
 }
 
 Page.loadToday = function() {
-   $('#main').load('today.html');
+   $('#main').load('today.html', function() {
+      $('#todayDate').html(DateTool.getTodaysDate());
+      Progress.getNextReading();
+   });
 }
 
 Page.loadChapters = function() {
@@ -12,8 +15,9 @@ Page.loadChapters = function() {
 }
 
 Page.loadSchedule = function() {
-   $('#main').load('schedule.html');
-   setTimeout(Bible.listBooksView, 10);
+   $('#main').load('schedule.html', function() {
+      Bible.listBooksView();
+   });
 }
 
 Page.loadSettings = function() {
