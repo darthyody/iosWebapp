@@ -47,6 +47,7 @@ Bible.listBookChapters = function(e) {
 }
 
 Bible.addChapterBtn = function(book, intChapter) {
+   console.log(book, intChapter);
    var id = Bible.getChapID(book.ID, intChapter)
    $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
    $btnChap.html(intChapter);

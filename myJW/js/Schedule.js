@@ -15,6 +15,7 @@ Schedule.init = function() {
 }
 
 Schedule.formatReading = function(aSchedule) {
+   Schedule.addReadingDisplay(aSchedule.Reading);
    var strReading = "<div class='txt-center'><h4>Day " + parseInt(aSchedule.ID) + "</h4>";
    var aReading;
    for (var i = 0; i < aSchedule.Reading.length; i++) {
@@ -63,4 +64,14 @@ Schedule.formatReading = function(aSchedule) {
    });
    console.log("next reading" + strReading);
    $('#reading').html(strReading);
+}
+
+Schedule.addReadingDisplay = function(aReading) {
+   for (var i = 0; i < aReading.length; i++) {
+      var bookID   = aReading[i].substring(0,2);
+      var book     = Bible.getBook(bookID);
+      var chapID   = parseInt(aReading[i].substring(2,5));
+      Bible.addChapterBtn(book, chapID);
+   }
+   $('#books').prepend("<h4>" + book.Name + "</h4>");
 }
