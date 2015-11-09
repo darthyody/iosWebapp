@@ -39,10 +39,10 @@ Progress.removeChapter = function(intChapID) {
    }
 };
 
-Progress.updateBar = function(aBooks) {
+Progress.updateBar = function() {
    var value = 0;
    var i = 0;
-   $(aBooks).each(function() {
+   $(Bible.books).each(function() {
       i += this.Chapters;
    });
    var finished = Progress.CompletedChapters.length;
@@ -61,5 +61,3 @@ Progress.getNextReading = function() {
       }
    }
 }
-
-Progress.init();

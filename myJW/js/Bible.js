@@ -8,8 +8,6 @@ Bible.init = function() {
    });
 }
 
-Bible.init();
-
 Bible.isChapterComplete = function(intChapID) {
    return ($.inArray(intChapID, Progress.CompletedChapters) !== -1);
 }
@@ -26,43 +24,59 @@ Bible.getChapID = function(intBookID, intChapterNum) {
    return intChapID;
 }
 
-Bible.getBookName = function(aBooks, intBookID) {
-   for (var i = 0; i < aBooks.length; i++) {
-      if (aBooks[i].ID === intBookID) {
-         return aBooks[i].Name;
-      }
-   }
-}
-
-Bible.listBookChapters = function(e) {
-   var chaps = 0;
+Bible.getBook = function(intBookID) {
    $(Bible.books).each(function() {
-      if(this.ID === e.target.id) {
+      if(this.ID === intBookID) {
          book = this;
       }
    });
+   return book;   
+}
+
+Bible.listBookChapters = function(e) {
+   var book = Bible.getBook(e.target.id);
    var $chapHeader = $("<h5></h5>", {class: "bibleSection"});
    $chapHeader.html("CHAPTERS");
    $('#books').html($chapHeader);
    $('#pgTitle').html(book.Name);
-   $('#back').show();
+   Bible.addBackBtn();
    for(var i = 1; i <= book.Chapters; i++) {
-      var id = Bible.getChapID(book.ID, i)
-      $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
-      $btnChap.html(i);
-      $('#books').append($btnChap);
-      if (Bible.isChapterComplete(id)) {
-         Bible.addCompleteMarker($btnChap);
-      }
-      $($btnChap).click(function(e) {
-         if (!Bible.isChapterComplete(e.target.id)) {
-            Bible.markAsComplete(e.target);
-            Progress.updateBar(Bible.books);
-         } else {
-            Bible.removeCompleteMarker(this);
-         }
-      });
+      Bible.addChapterBtn(book, i);
    }
+   Bible.addCompleteAllBtn();
+}
+
+Bible.addChapterBtn = function(book, intChapter) {
+   var id = Bible.getChapID(book.ID, intChapter)
+   $btnChap = $("<div></div>", {id: id, class: "btnSchedule"});
+   $btnChap.html(intChapter);
+   $('#books').append($btnChap);
+   if (Bible.isChapterComplete(id)) {
+      Bible.addCompleteMarker($btnChap);
+   }
+   $($btnChap).click(function(e) {
+      if (!Bible.isChapterComplete(e.target.id)) {
+         Bible.markAsComplete(e.target);
+         Progress.updateBar(Bible.books);
+      } else {
+         Bible.removeCompleteMarker(this);
+         Progress.updateBar(Bible.books);
+      }
+   });   
+}
+
+Bible.addBackBtn = function() {
+   var $arrowIcon = $("<span></span", {id: "done", class: "glyphicon glyphicon-chevron-left"});
+   var $backBtn = $("<div></div>", {id: "checkAll", class: "btnCheckAll"});
+   $backBtn.append($arrowIcon);
+   $backBtn.css('background-color', '#9b9b9b');
+   $('#books').append($backBtn);
+   $backBtn.click(function(e) {
+      location.reload();
+   });   
+}
+
+Bible.addCompleteAllBtn = function() {
    var $chkIcon = $("<span></span", {id: "done", class: "glyphicon glyphicon-ok"});
    var $chkAll = $("<div></div>", {id: "checkAll", class: "btnCheckAll"});
    $chkAll.append($chkIcon)
@@ -73,11 +87,10 @@ Bible.listBookChapters = function(e) {
          Bible.markAsComplete(this);
          Progress.updateBar(Bible.books);
       });
-   });
+   });   
 }
 
 Bible.listBooksView = function() {
-   $('#back').hide();
    var $hbrHeading = $("<h5></h5>", {class: "bibleSection"});
    $hbrHeading.html("HEBREW-ARAMAIC SCRIPTURES");
    $('#books').append($hbrHeading);
@@ -91,7 +104,6 @@ Bible.listBooksView = function() {
          $grkHeading.html("CHRISTIAN GREEK SCRIPTURES");
          $('#books').append($grkHeading);
       }
-
       $btnBook.click(function(e) {
          Bible.listBookChapters(e);
       });
@@ -101,10 +113,10 @@ Bible.listBooksView = function() {
 
 Bible.markAsComplete = function(object) {
    if (!Bible.isChapterComplete(object.id)) {
+      Bible.addCompleteMarker(object);
       Progress.addChapter(object.id);
       Progress.save();
    }
-   Bible.addCompleteMarker(object);
 }
 
 Bible.addCompleteMarker = function(object) {

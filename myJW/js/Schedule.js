@@ -14,19 +14,18 @@ Schedule.init = function() {
    });
 }
 
-Schedule.init();
-
 Schedule.formatReading = function(aSchedule) {
    var strReading = "<div class='txt-center'><h4>Day " + parseInt(aSchedule.ID) + "</h4>";
    var aReading;
    for (var i = 0; i < aSchedule.Reading.length; i++) {
       var oRead    = {};
       var bookID   = aSchedule.Reading[i].substring(0,2);
-      var bookName = Bible.getBookName(Bible.books, bookID);
+      // var bookName = Bible.getBookName(Bible.books, bookID);
+      var book = Bible.getBook(bookID);
       var chapID   = parseInt(aSchedule.Reading[i].substring(2,5));
 
       oRead.bookID   = bookID;
-      oRead.bookName = bookName;
+      oRead.bookName = book.Name;
       oRead.chapters = [chapID];
 
       if (!aReading) {

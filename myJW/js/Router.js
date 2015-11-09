@@ -42,9 +42,3 @@ Page.displayPage = function() {
          Page.loadToday();
    }
 }
-
-$(window).on('hashchange', function() {
-   Page.displayPage();
-});
-
-Page.displayPage();
