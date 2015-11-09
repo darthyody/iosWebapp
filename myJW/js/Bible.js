@@ -30,7 +30,7 @@ Bible.getBook = function(intBookID) {
          book = this;
       }
    });
-   return book;   
+   return book;
 }
 
 Bible.listBookChapters = function(e) {
@@ -62,7 +62,7 @@ Bible.addChapterBtn = function(book, intChapter) {
          Bible.removeCompleteMarker(this);
          Progress.updateBar(Bible.books);
       }
-   });   
+   });
 }
 
 Bible.addBackBtn = function() {
@@ -72,8 +72,10 @@ Bible.addBackBtn = function() {
    $backBtn.css('background-color', '#9b9b9b');
    $('#books').append($backBtn);
    $backBtn.click(function(e) {
-      location.reload();
-   });   
+      $('#main').load('schedule.html', function() {
+         Bible.listBooksView();
+      });
+   });
 }
 
 Bible.addCompleteAllBtn = function() {
@@ -87,7 +89,7 @@ Bible.addCompleteAllBtn = function() {
          Bible.markAsComplete(this);
          Progress.updateBar(Bible.books);
       });
-   });   
+   });
 }
 
 Bible.listBooksView = function() {
