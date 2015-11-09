@@ -50,6 +50,25 @@ Progress.updateBar = function() {
    $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress).html(progress + '%');
 }
 
+Progress.saveCurrentReading = function() {
+   var currentReading = Progress.getCurrentReading();
+   for (var i = 0; i < currentReading.length; i++) {
+      Progress.addChapter(currentReading[i]);
+   };
+   Progress.save();
+}
+
+Progress.getCurrentReading = function() {
+   for (var i = 0; i < Schedule.Schedule.length; i++) {
+      for (var j = 0; j < Schedule.Schedule[i].Reading.length; j++) {
+         var read = Schedule.Schedule[i].Reading[j];
+         if ($.inArray(read, Progress.CompletedChapters) === -1) {
+            return Schedule.Schedule[i].Reading;
+         }
+      }
+   }
+}
+
 Progress.getNextReading = function() {
    for (var i = 0; i < Schedule.Schedule.length; i++) {
       for (var j = 0; j < Schedule.Schedule[i].Reading.length; j++) {

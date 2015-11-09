@@ -20,8 +20,7 @@ Schedule.formatReading = function(aSchedule) {
    for (var i = 0; i < aSchedule.Reading.length; i++) {
       var oRead    = {};
       var bookID   = aSchedule.Reading[i].substring(0,2);
-      // var bookName = Bible.getBookName(Bible.books, bookID);
-      var book = Bible.getBook(bookID);
+      var book     = Bible.getBook(bookID);
       var chapID   = parseInt(aSchedule.Reading[i].substring(2,5));
 
       oRead.bookID   = bookID;
@@ -32,15 +31,19 @@ Schedule.formatReading = function(aSchedule) {
          aReading = [];
          aReading.push(oRead);
       } else {
+         var blIsReadingListed = false;
          $(aReading).each(function() {
             if (this.bookID === oRead.bookID) {
-               this.chapters.push(chapID)
-            } else {
-               aReading.push(oRead);
+               this.chapters.push(chapID);
+               blIsReadingListed = true;
             }
          });
+         if (!blIsReadingListed) {
+            aReading.push(oRead);
+         }
       }
    }
+   console.log(aReading);
    var strReading;
    $(aReading).each(function() {
       if (!strReading) {
@@ -58,11 +61,6 @@ Schedule.formatReading = function(aSchedule) {
       }
       strReading += " " + chapters;
    });
+   console.log("next reading" + strReading);
    $('#reading').html(strReading);
-   $('#done').click(function(e) {
-      for (var i = 0; i < aSchedule.Reading.length; i++) {
-         Bible.markAsComplete(aSchedule.Reading[i]);
-         Progress.getNextReading();
-      }
-   });
 }

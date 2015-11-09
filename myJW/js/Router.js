@@ -7,6 +7,10 @@ Page.loadToday = function() {
    $('#main').load('today.html', function() {
       $('#todayDate').html(DateTool.getTodaysDate());
       Progress.getNextReading();
+      $('#done').click(function(e) {
+         Progress.saveCurrentReading();
+         Progress.getNextReading();
+      });
    });
 }
 
