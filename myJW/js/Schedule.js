@@ -44,7 +44,6 @@ Schedule.formatReading = function(aSchedule) {
          }
       }
    }
-   console.log(aReading);
    var strReading;
    $(aReading).each(function() {
       if (!strReading) {
@@ -62,16 +61,49 @@ Schedule.formatReading = function(aSchedule) {
       }
       strReading += " " + chapters;
    });
-   console.log("next reading" + strReading);
    $('#reading').html(strReading);
 }
 
 Schedule.addReadingDisplay = function(aReading) {
+   var mBkToChap = Schedule.listReadingByBook(aReading);
+   for (var i = 0; i < mBkToChap.length; i++) {
+      var $bkName = $("<h4></h4>", {class: "bibleSection"});
+      $bkName.html(mBkToChap[i].bookName);
+      $('#books').append($bkName);
+      for (var j = 0; j < mBkToChap[i].chapters.length; j++) {
+         var book = Bible.getBook(mBkToChap[i].bookID);
+         Bible.addChapterBtn(book, mBkToChap[i].chapters[j]);
+      }
+   }
+}
+
+Schedule.listReadingByBook = function(aReading) {
+   var mBkToChap;
    for (var i = 0; i < aReading.length; i++) {
+      var oRead    = {};
       var bookID   = aReading[i].substring(0,2);
       var book     = Bible.getBook(bookID);
       var chapID   = parseInt(aReading[i].substring(2,5));
-      Bible.addChapterBtn(book, chapID);
+
+      oRead.bookID   = bookID;
+      oRead.bookName = book.Name;
+      oRead.chapters = [chapID];
+
+      if (!mBkToChap) {
+         mBkToChap = [];
+         mBkToChap.push(oRead);
+      } else {
+         var blIsReadingListed = false;
+         $(mBkToChap).each(function() {
+            if (this.bookID === oRead.bookID) {
+               this.chapters.push(chapID);
+               blIsReadingListed = true;
+            }
+         });
+         if (!blIsReadingListed) {
+            mBkToChap.push(oRead);
+         }
+      }
    }
-   $('#books').prepend("<h4>" + book.Name + "</h4>");
+   return mBkToChap;
 }
