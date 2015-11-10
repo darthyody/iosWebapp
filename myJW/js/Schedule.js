@@ -15,6 +15,7 @@ Schedule.init = function() {
 }
 
 Schedule.formatReading = function(aSchedule) {
+   $('#books').append("<h3 class='bibleSection'>Actual Reading</h3>");
    Schedule.addReadingDisplay(aSchedule.Reading);
    var day = DateTool.getReadingDay();
    var reading = Schedule.getReadingForDay(day);
