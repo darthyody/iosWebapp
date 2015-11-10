@@ -16,34 +16,13 @@ Schedule.init = function() {
 
 Schedule.formatReading = function(aSchedule) {
    Schedule.addReadingDisplay(aSchedule.Reading);
-   var strReading = "<div class='txt-center'><h4>Day " + parseInt(aSchedule.ID) + "</h4>";
-   var aReading;
-   for (var i = 0; i < aSchedule.Reading.length; i++) {
-      var oRead    = {};
-      var bookID   = aSchedule.Reading[i].substring(0,2);
-      var book     = Bible.getBook(bookID);
-      var chapID   = parseInt(aSchedule.Reading[i].substring(2,5));
+   var day = DateTool.getReadingDay();
+   var reading = Schedule.getReadingForDay(day);
+   $('#books').append("<h3 class='bibleSection'><hr>Scheduled Reading</h3>");
+   Schedule.addReadingDisplay(reading);
 
-      oRead.bookID   = bookID;
-      oRead.bookName = book.Name;
-      oRead.chapters = [chapID];
-
-      if (!aReading) {
-         aReading = [];
-         aReading.push(oRead);
-      } else {
-         var blIsReadingListed = false;
-         $(aReading).each(function() {
-            if (this.bookID === oRead.bookID) {
-               this.chapters.push(chapID);
-               blIsReadingListed = true;
-            }
-         });
-         if (!blIsReadingListed) {
-            aReading.push(oRead);
-         }
-      }
-   }
+   var strReading = "<div class='txt-center'><h4>Day " + day + "</h4>";
+   var aReading = Schedule.listReadingByBook(aSchedule.Reading);
    var strReading;
    $(aReading).each(function() {
       if (!strReading) {
@@ -62,6 +41,16 @@ Schedule.formatReading = function(aSchedule) {
       strReading += " " + chapters;
    });
    $('#reading').html(strReading);
+}
+
+Schedule.getReadingForDay = function(intDayID) {
+   var reading = [];
+   for (var i = 0; i < Schedule.Schedule.length; i++) {
+      if (intDayID === parseInt(Schedule.Schedule[i].ID)) {
+         reading = Schedule.Schedule[i].Reading;
+      }
+   }
+   return reading;
 }
 
 Schedule.addReadingDisplay = function(aReading) {

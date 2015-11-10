@@ -27,3 +27,21 @@ DateTool.getTodaysDate = function() {
    var formattedDate = day + ', ' + month + ' ' + dayDate + ', ' + year;
    return formattedDate;
 }
+
+DateTool.treatAsUTC = function(date) {
+    var result = new Date(date);
+    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+    return result;
+}
+
+DateTool.daysSince = function(startDate, endDate) {
+    var millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return (DateTool.treatAsUTC(endDate) - DateTool.treatAsUTC(startDate)) / millisecondsPerDay;
+}
+
+DateTool.getReadingDay = function() {
+   var today = DateTool.getFormattedDate(new Date());
+   var saved = Progress.StartDate;
+   var days = DateTool.daysSince(saved, today);
+   return days;
+}
