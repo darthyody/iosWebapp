@@ -15,7 +15,7 @@ function init() {
    var dateNow    = new Date();
    var dateNowFm  = DateTool.getFormattedDate(new Date());
    var dateCtd    = new Date(DateTool.reformatString('2015 11 11'));
-   var dateCtdFm  = DateTool.getFormattedDate(new Date(DateTool.reformatString('2015 11 11'));
+   var dateCtdFm  = DateTool.getFormattedDate(new Date(DateTool.reformatString('2015 11 11')));
    var savedNow   = Progress.StartDate;
    var savedNowFm = DateTool.getFormattedDate(new Date(DateTool.reformatString(Progress.StartDate)));
    $csl.append("<p>NOW: " + typeof dateNow + dateNow + "</p>");
