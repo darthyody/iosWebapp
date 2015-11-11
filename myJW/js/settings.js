@@ -14,12 +14,14 @@ function init() {
    var $csl = $('#console');
    var dateNow    = new Date();
    var dateNowFm  = DateTool.getFormattedDate(new Date());
-   var dateCtd    = DateTool.getFormattedDate(new Date('2015 11 11'));
+   var dateCtd    = new Date('2015 11 11');
+   var dateCtdFm  = DateTool.getFormattedDate(new Date('2015 11 11'));
    var savedNow   = Progress.StartDate;
    var savedNowFm = DateTool.getFormattedDate(new Date(Progress.StartDate));
    $csl.append("<p>NOW: " + typeof dateNow + dateNow + "</p>");
    $csl.append("<p>NOW FRMT: " + typeof dateNowFm + dateNowFm + "</p>");
    $csl.append("<p>NOW CREATED: " + typeof dateCtd + dateCtd + "</p>");
+   $csl.append("<p>NOW CREATED FRMT: " + typeof dateCtdFm + dateCtdFm + "</p>");
    $csl.append("<p>SAVED: " + typeof + savedNow + savedNow + "</p>");
    $csl.append("<p>SAVED FRMT: " + typeof + savedNowFm + savedNowFm + "</p>");
 }
@@ -28,7 +30,7 @@ init();
 $('#save').click(function() {
    var $csl    = $('#console');
    var date = DateTool.getFormattedDate(new Date($('#startdate').val()));
-   $csl.append("<p>pre-reset: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
+   $csl.append("<p>pre-save: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
 
    var blOk = ($('#autocomplete:checked').val()) ? true : false;
    Progress.StartDate = date;
@@ -47,7 +49,7 @@ $('#save').click(function() {
    var newDate = $('#startdate').val();
    $csl.append("<p>NEW DATE: " + typeof + newDate + newDate + "</p>");
    $csl.append("<p>SAVE AS: " + typeof + date + date + "</p>");
-   $csl.append("<p>post-reset: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
+   $csl.append("<p>post-save: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
 });
 
 $('#reset').click(function() {
