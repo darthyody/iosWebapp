@@ -14,10 +14,6 @@ Page.loadToday = function() {
    });
 }
 
-Page.loadChapters = function() {
-   console.log("chapters");
-}
-
 Page.loadSchedule = function() {
    $('#main').load('schedule.html', function() {
       Bible.listBooksView();
@@ -25,7 +21,6 @@ Page.loadSchedule = function() {
 }
 
 Page.loadSettings = function() {
-   console.log("settings");
    $('#main').load('settings.html');
 }
 
@@ -33,9 +28,6 @@ Page.displayPage = function() {
    var pgHash = window.location.hash.substring(1);
    Page.resetPage();
    switch(pgHash) {
-      case "chapters":
-         Page.loadChapters();
-         break;
       case "schedule":
          Page.loadSchedule();
          break;

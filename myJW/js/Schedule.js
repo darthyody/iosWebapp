@@ -14,23 +14,14 @@ Schedule.init = function() {
    });
 }
 
-Schedule.formatReading = function(aSchedule) {
-   $('#books').html("");
-   $('#books').append("<h3 class='bibleSection'>Actual Reading</h3>");
-   Schedule.addReadingDisplay(aSchedule.Reading);
-   $('#books').append("<h3 class='bibleSection'><hr>Scheduled Reading</h3>");
-   var day = (DateTool.getReadingDay()) ? DateTool.getReadingDay() : 1;
-   var reading = Schedule.getReadingForDay(day);
-   Schedule.addReadingDisplay(reading);
-
-   var strReading = "<div class='txt-center'><h4>Day " + day + "</h4>";
-   var aReading = Schedule.listReadingByBook(aSchedule.Reading);
+Schedule.getFormattedReading = function(reading) {
+   var aReading = Schedule.listReadingByBook(reading);
    var strReading;
    $(aReading).each(function() {
       if (!strReading) {
          strReading = this.bookName;
       } else {
-         strReading += "<br>" + this.bookName;
+         strReading += "; " + this.bookName;
       }
       var chapters;
       for (var i = 0; i < this.chapters.length; i++) {
@@ -42,6 +33,20 @@ Schedule.formatReading = function(aSchedule) {
       }
       strReading += " " + chapters;
    });
+   return strReading;
+}
+
+Schedule.formatReading = function(aSchedule) {
+   $('#books').html("");
+   $('#books').append("<h3 class='bibleSection'>Actual Reading</h3>");
+   Schedule.addReadingDisplay(aSchedule.Reading);
+   $('#books').append("<h3 class='bibleSection'><hr>Scheduled Reading</h3>");
+   var day = (DateTool.getReadingDay()) ? DateTool.getReadingDay() : 1;
+   var reading = Schedule.getReadingForDay(day);
+   Schedule.addReadingDisplay(reading);
+
+   var strReading = "<div class='txt-center'><h4>Day " + day + "</h4>";
+   strReading += Schedule.getFormattedReading(aSchedule.Reading);
    $('#reading').html(strReading);
 }
 
