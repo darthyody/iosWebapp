@@ -52,7 +52,7 @@ DateTool.reformatString = function(strOldDate) {
    console.log("year '" + year + "'");
    var month = strOldDate.substring(5,7);
    console.log("month '" + month + "'");
-   var day   = strOldDate.substring(7);
+   var day   = strOldDate.substring(8);
    console.log("day '" + day + "'");
    return month + "/" + day + "/" + year;
 }

@@ -33,7 +33,7 @@ $('#save').click(function() {
    $csl.append("<p>pre-save: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
 
    var blOk = ($('#autocomplete:checked').val()) ? true : false;
-   Progress.StartDate = date;
+   Progress.StartDate = DateTool.reformatString(date);
    if (blOk) {
       var day = DateTool.getReadingDay();
       for (var i = 0; i < day; i++) {
