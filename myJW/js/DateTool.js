@@ -48,7 +48,10 @@ DateTool.getReadingDay = function() {
 
 DateTool.reformatString = function(strOldDate) {
    var year  = strOldDate.substring(0,4);
-   var month = strOldDate.substring(4,2);
-   var day   = strOldDate.substring(6,2);
+   console.log("year '" + year + "'");
+   var month = strOldDate.substring(5,7);
+   console.log("month '" + month + "'");
+   var day   = strOldDate.substring(7);
+   console.log("day '" + day + "'");
    return month + "/" + day + "/" + year;
 }
