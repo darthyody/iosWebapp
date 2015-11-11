@@ -15,11 +15,12 @@ Schedule.init = function() {
 }
 
 Schedule.formatReading = function(aSchedule) {
+   $('#books').html("");
    $('#books').append("<h3 class='bibleSection'>Actual Reading</h3>");
    Schedule.addReadingDisplay(aSchedule.Reading);
-   var day = DateTool.getReadingDay();
-   var reading = Schedule.getReadingForDay(day);
    $('#books').append("<h3 class='bibleSection'><hr>Scheduled Reading</h3>");
+   var day = (DateTool.getReadingDay()) ? DateTool.getReadingDay() : 1;
+   var reading = Schedule.getReadingForDay(day);
    Schedule.addReadingDisplay(reading);
 
    var strReading = "<div class='txt-center'><h4>Day " + day + "</h4>";

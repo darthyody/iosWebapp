@@ -26,6 +26,7 @@ Progress.save = function() {
    currentProgress.StartDate = Progress.StartDate;
    currentProgress.CompletedChapters = Progress.CompletedChapters;
    localStorage.setItem('progress', JSON.stringify(currentProgress));
+   Progress.init();
 }
 
 Progress.addChapter = function(intChapID) {
