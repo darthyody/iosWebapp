@@ -30,7 +30,10 @@ Progress.save = function() {
 }
 
 Progress.addChapter = function(intChapID) {
-   Progress.CompletedChapters.push(intChapID);
+   var index = $.inArray(intChapID, Progress.CompletedChapters);
+   if (index === -1) {
+      Progress.CompletedChapters.push(intChapID);
+   }
 };
 
 Progress.removeChapter = function(intChapID) {

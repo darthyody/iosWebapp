@@ -15,7 +15,14 @@ $('#save').click(function() {
    var blOk = ($('#autocomplete:checked').val()) ? true : false;
    Progress.StartDate = date;
    if (blOk) {
-      console.log("complete all the chapters");
+      var day = DateTool.getReadingDay();
+      for (var i = 0; i < day; i++) {
+         for (var j = 0; j < Schedule.Schedule[i].Reading.length; j++) {
+            var intChapID = Schedule.Schedule[i].Reading[j];
+            Progress.addChapter(intChapID);
+            Progress.save();
+         }
+      }
    }
    Progress.save();
    location.reload();
@@ -25,5 +32,6 @@ $('#reset').click(function() {
    var yesNo = confirm("Are you sure you want to reset your schedule?");
    if(yesNo) {
       Progress.initSavedProgress();
+      location.reload();
    }
 });
