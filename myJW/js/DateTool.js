@@ -29,9 +29,10 @@ DateTool.getTodaysDate = function() {
 }
 
 DateTool.treatAsUTC = function(date) {
-    var result = new Date(date);
-    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
-    return result;
+   date = DateTool.reformatString(date);
+   var result = new Date(date);
+   result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+   return result;
 }
 
 DateTool.daysSince = function(startDate, endDate) {
