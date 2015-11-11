@@ -45,3 +45,10 @@ DateTool.getReadingDay = function() {
    var days = DateTool.daysSince(saved, today);
    return days;
 }
+
+DateTool.reformatString = function(strOldDate) {
+   var year  = strOldDate.substring(0,4);
+   var month = strOldDate.substring(4,2);
+   var day   = strOldDate.substring(6,2);
+   return month + "/" + day + "/" + year;
+}

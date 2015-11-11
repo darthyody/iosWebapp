@@ -14,10 +14,10 @@ function init() {
    var $csl = $('#console');
    var dateNow    = new Date();
    var dateNowFm  = DateTool.getFormattedDate(new Date());
-   var dateCtd    = new Date('2015 11 11');
-   var dateCtdFm  = DateTool.getFormattedDate(new Date('2015 11 11'));
+   var dateCtd    = new Date(DateTool.reformatString('2015 11 11'));
+   var dateCtdFm  = DateTool.getFormattedDate(new Date(DateTool.reformatString('2015 11 11'));
    var savedNow   = Progress.StartDate;
-   var savedNowFm = DateTool.getFormattedDate(new Date(Progress.StartDate));
+   var savedNowFm = DateTool.getFormattedDate(new Date(DateTool.reformatString(Progress.StartDate)));
    $csl.append("<p>NOW: " + typeof dateNow + dateNow + "</p>");
    $csl.append("<p>NOW FRMT: " + typeof dateNowFm + dateNowFm + "</p>");
    $csl.append("<p>NOW CREATED: " + typeof dateCtd + dateCtd + "</p>");
