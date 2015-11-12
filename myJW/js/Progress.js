@@ -13,7 +13,7 @@ Progress.init = function() {
 }
 
 Progress.initSavedProgress = function(date) {
-   var newDate = (date) ? DateToo.reformatString(DateTool.getFormattedDate(date)) : DateToo.reformatString(DateTool.getFormattedDate(new Date()));
+   var newDate = (date) ? DateToo.getFormattedDate(date) : DateToo.getFormattedDate(new Date());
    localStorage.clear();
    var progress = {};
    progress.StartDate = newDate;

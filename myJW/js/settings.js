@@ -14,10 +14,10 @@ function init() {
    var $csl = $('#console');
    var dateNow    = new Date();
    var dateNowFm  = DateTool.getFormattedDate(new Date());
-   var dateCtd    = new Date(DateTool.reformatString('2015 11 11'));
-   var dateCtdFm  = DateTool.getFormattedDate(new Date(DateTool.reformatString('2015 11 11')));
+   var dateCtd    = new Date(DateTool.getFormattedDate(new Date('11/11/2015')));
+   var dateCtdFm  = DateTool.getFormattedDate(new Date('11/11/2015'));
    var savedNow   = Progress.StartDate;
-   var savedNowFm = DateTool.getFormattedDate(new Date(DateTool.reformatString(Progress.StartDate)));
+   var savedNowFm = DateTool.getFormattedDate(new Date(Progress.StartDate));
    $csl.append("<p>NOW: " + typeof dateNow + dateNow + "</p>");
    $csl.append("<p>NOW FRMT: " + typeof dateNowFm + dateNowFm + "</p>");
    $csl.append("<p>NOW CREATED: " + typeof dateCtd + dateCtd + "</p>");
@@ -33,7 +33,7 @@ $('#save').click(function() {
    $csl.append("<p>pre-save: " + typeof + Progress.StartDate + Progress.StartDate + "</p>");
 
    var blOk = ($('#autocomplete:checked').val()) ? true : false;
-   Progress.StartDate = DateTool.reformatString(date);
+   Progress.StartDate = DateTool.getFormattedDate(date);
    if (blOk) {
       var day = DateTool.getReadingDay();
       for (var i = 0; i < day; i++) {

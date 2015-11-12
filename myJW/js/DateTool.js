@@ -4,10 +4,13 @@ DateTool.Months = ["January", "February", "March", "April", "May", "June", "July
 DateTool.Days   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 DateTool.getFormattedDate = function(objDate) {
+   if (typeof objDate !== 'object') {
+      objDate = new Date(objDate);
+   }
    var day   = objDate.getDate();
    var month = objDate.getMonth() + 1;
    var year  = objDate.getFullYear();
-   return year + ' ' + month + ' ' + day;
+   return month + '/' + day + '/' + year;
 }
 
 DateTool.getPrettyDate = function(objDate) {
@@ -29,7 +32,6 @@ DateTool.getTodaysDate = function() {
 }
 
 DateTool.treatAsUTC = function(date) {
-   date = DateTool.reformatString(date);
    var result = new Date(date);
    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
    return result;
@@ -43,16 +45,6 @@ DateTool.daysSince = function(startDate, endDate) {
 DateTool.getReadingDay = function() {
    var today = DateTool.getFormattedDate(new Date());
    var saved = Progress.StartDate;
-   var days = DateTool.daysSince(saved, today);
+   var days  = DateTool.daysSince(saved, today);
    return days;
-}
-
-DateTool.reformatString = function(strOldDate) {
-   var year  = strOldDate.substring(0,4);
-   console.log("year '" + year + "'");
-   var month = strOldDate.substring(5,7);
-   console.log("month '" + month + "'");
-   var day   = strOldDate.substring(8);
-   console.log("day '" + day + "'");
-   return month + "/" + day + "/" + year;
 }
