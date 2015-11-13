@@ -21,6 +21,19 @@ Progress.initSavedProgress = function(date) {
    return progress;
 }
 
+Progress.getStatus = function() {
+   var status = {};
+   var day = DateTool.getReadingDay();
+   var date = Progress.getNextReading();
+   status.days = day - date;
+   status.log = (status.days === 0) ? "ONTIME" : null;
+   if(!status.log) {
+      status.log = (status.days > 0) ? "BEHIND" : "AHEAD";
+      status.days = Math.abs(status.days);
+   }
+   return status;
+}
+
 Progress.save = function() {
    var currentProgress = {};
    currentProgress.StartDate = Progress.StartDate;
@@ -79,7 +92,7 @@ Progress.getNextReading = function() {
          var read = Schedule.Schedule[i].Reading[j];
          if ($.inArray(read, Progress.CompletedChapters) === -1) {
             Schedule.formatReading(Schedule.Schedule[i]);
-            return;
+            return Schedule.Schedule[i].ID;
          }
       }
    }

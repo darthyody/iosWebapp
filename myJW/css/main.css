@@ -10,6 +10,26 @@
 .txt-right {
   text-align: right; }
 
+.status-white {
+  border: solid 1px black;
+  font-weight: bold;
+  width: 100%;
+  color: black; }
+
+.status-green {
+  border: solid 1px black;
+  font-weight: bold;
+  width: 100%;
+  background-color: green;
+  color: black; }
+
+.status-red {
+  border: solid 1px black;
+  font-weight: bold;
+  width: 100%;
+  background-color: red;
+  color: white; }
+
 #back {
   position: absolute;
   top: 25px; }
