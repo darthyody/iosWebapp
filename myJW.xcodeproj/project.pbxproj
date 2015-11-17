@@ -11,6 +11,7 @@
 		D752FE941BE666F400216674 /* schedule.html in Resources */ = {isa = PBXBuildFile; fileRef = D752FE911BE666F400216674 /* schedule.html */; };
 		D752FE951BE666F400216674 /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = D752FE921BE666F400216674 /* settings.html */; };
 		D752FE961BE666F400216674 /* today.html in Resources */ = {isa = PBXBuildFile; fileRef = D752FE931BE666F400216674 /* today.html */; };
+		D78AD9181BFBD2320035B193 /* reading.html in Resources */ = {isa = PBXBuildFile; fileRef = D78AD9171BFBD2320035B193 /* reading.html */; };
 		D7A13BD91BE0F0C50052B3FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */; };
 		D7A13BDB1BE0F0C50052B3FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */; };
 		D7A13BDE1BE0F0C50052B3FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BDC1BE0F0C50052B3FE /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		D752FE911BE666F400216674 /* schedule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = schedule.html; path = myJW/schedule.html; sourceTree = "<group>"; };
 		D752FE921BE666F400216674 /* settings.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = settings.html; path = myJW/settings.html; sourceTree = "<group>"; };
 		D752FE931BE666F400216674 /* today.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = today.html; path = myJW/today.html; sourceTree = "<group>"; };
+		D78AD9171BFBD2320035B193 /* reading.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = reading.html; path = myJW/reading.html; sourceTree = "<group>"; };
 		D7A13BD51BE0F0C50052B3FE /* myJW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myJW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A13BD81BE0F0C50052B3FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A13BDA1BE0F0C50052B3FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D752FE911BE666F400216674 /* schedule.html */,
+				D78AD9171BFBD2320035B193 /* reading.html */,
 				D752FE921BE666F400216674 /* settings.html */,
 				D752FE931BE666F400216674 /* today.html */,
 				D7EED2451BED564800712819 /* index.html */,
@@ -207,6 +210,7 @@
 				D752FE961BE666F400216674 /* today.html in Resources */,
 				D7EED2461BED564800712819 /* index.html in Resources */,
 				D752FE901BE3A3D200216674 /* Launch Screen.storyboard in Resources */,
+				D78AD9181BFBD2320035B193 /* reading.html in Resources */,
 				D7DC98801BE14F98002C6982 /* fonts in Resources */,
 				D7A13BE01BE0F0C50052B3FE /* Assets.xcassets in Resources */,
 				D7A13BDE1BE0F0C50052B3FE /* Main.storyboard in Resources */,
