@@ -81,6 +81,12 @@ Schedule.listReadingByBook = function(aReading) {
       var book     = Bible.getBook(bookID);
       var chapID   = parseInt(aReading[i].substring(2,5));
 
+      if (aReading[i].substring(5,8)) {
+         var verseID  = parseInt(aReading[i].substring(5,8));
+         console.log(verseID);
+         chapID = chapID + ":" + verseID;
+      }
+
       oRead.bookID   = bookID;
       oRead.bookName = book.Name;
       oRead.chapters = [chapID];
